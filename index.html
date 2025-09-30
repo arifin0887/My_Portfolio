@@ -289,22 +289,39 @@
                 margin-top: 10px;
             }
 
-            .tech-stack button {
-                background: #111;
-                color: #00ccff;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 25px;
-                font-weight: 500;
-                margin: 3px 5px 3px 0;
-                font-size: 15px;
-                transition: 0.3s;
-                cursor: default;
-            }
-
-            .tech-stack button:hover {
-                background: #00ccff22;
-        }
+            .tech-stack {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.tech-stack button {
+    background: linear-gradient(90deg, #0b0b0b 60%, #00ccff22 100%);
+    color: #00ccff;
+    border: 1px solid #00ccff55;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    margin: 3px 5px 3px 0;
+    box-shadow: 0 2px 8px rgba(0,204,255,0.07);
+    transition: 
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.3s,
+        border 0.3s;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: 0.5px;
+}
+.tech-stack button:hover,
+.tech-stack button:focus {
+    background: linear-gradient(90deg, #00ccff 60%, #0b0b0b 100%);
+    color: #111;
+    border: 1.5px solid #00ccff;
+    box-shadow: 0 4px 16px rgba(0,204,255,0.18);
+}
     }
     </style>
 </head>
@@ -344,85 +361,85 @@
     </section>
 
     <section id="projects" class="projects-section">
-    <h2>My Projects</h2>
-    <div class="slider">
-        <div class="slide">
-            <img src="findev0.png" alt="Project 1">
-            <h3>Desain Logo</h3>
-            <p>Logo FinDev Studio</p>
-            <div class="tech-stack">
-                <button>Corel Draw</button>
+        <h2>My Projects</h2>
+        <div class="slider">
+            <div class="slide">
+                <img src="findev0.png" alt="Project 1">
+                <h3>Desain Logo</h3>
+                <p>Logo FinDev Studio</p>
+                <div class="tech-stack">
+                    <button>Corel Draw</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="findev01.png" alt="Project 2">
-            <h3>Rental</h3>
-            <p>Sistem rental mobil</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>MySQL</button>
-                <button>Bootstrap</button>
+            <div class="slide">
+                <img src="findev01.png" alt="Project 2">
+                <h3>Rental</h3>
+                <p>Sistem rental mobil</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="findev01.png" alt="Project 2">
-            <h3>PerpusKu</h3>
-            <p>Aplikasi peminjaman buku perpustakaan.</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>MySQL</button>
-                <button>Bootstrap</button>
+            <div class="slide">
+                <img src="findev01.png" alt="Project 2">
+                <h3>PerpusKu</h3>
+                <p>Aplikasi peminjaman buku perpustakaan.</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="findev01.png" alt="Project 2">
-            <h3>Booking</h3>
-            <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>MySQL</button>
-                <button>Laravel</button>
-                <button>Tellwine</button>
+            <div class="slide">
+                <img src="findev01.png" alt="Project 2">
+                <h3>Booking</h3>
+                <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Laravel</button>
+                    <button>Tellwine</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="fingo.png" alt="Project 4">
-            <h3>FinGo</h3>
-            <p>Aplikasi kasir</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>JavaScript</button>
-                <button>MySQL</button>
+            <div class="slide">
+                <img src="fingo.png" alt="Project 4">
+                <h3>FinGo</h3>
+                <p>Aplikasi kasir</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>JavaScript</button>
+                    <button>MySQL</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="Logo SMK.png" style="width: auto;" alt="Project 3">
-            <h3>EkstraKu</h3>
-            <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>MySQL</button>
-                <button>Bootstrap</button>
-                <button>Chart.js</button>
+            <div class="slide">
+                <img src="Logo SMK.png" style="width: auto;" alt="Project 3">
+                <h3>EkstraKu</h3>
+                <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                    <button>Chart.js</button>
+                </div>
             </div>
-        </div>
 
-        <div class="slide">
-            <img src="Logo SMK.png" style="width: auto;" alt="Project 4">
-            <h3>AkademiKu</h3>
-            <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
-            <div class="tech-stack">
-                <button>PHP</button>
-                <button>MySQL</button>
-                <button>Bootstrap</button>
+            <div class="slide">
+                <img src="Logo SMK.png" style="width: auto;" alt="Project 4">
+                <h3>AkademiKu</h3>
+                <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
+                <div class="tech-stack">
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 
     <section id="contact">
