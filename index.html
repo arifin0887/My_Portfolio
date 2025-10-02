@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Muhammad Arifin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Metal+Mania&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     
     <style>
         /* Reset & Base */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Roboto', sans-serif; background-color: #0b0b0b; color: #f0f0f0; line-height: 1.6; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #0b0b0b; 
+            color: #f0f0f0; 
+            line-height: 1.6; 
+            overflow-x: hidden; /* Prevents horizontal scroll from absolute elements */
+        }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         a:hover { color: #00ccff; }
 
         img { display: block; max-width: 100%; }
+
+        /* Footer (Added) */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #ccc;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
 
         /* Header */
         header {
@@ -25,7 +40,7 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9); /* Slightly more opaque for readability */
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
@@ -34,41 +49,40 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
         .logo h1 {
-            /* Changed Font: Use a clean, modern, professional font. Montserrat is used here. */
+            /* Using the chosen professional font */
             font-family: 'Montserrat', sans-serif;
-            /* Changed Font Size: Slightly smaller and cleaner */
             font-size: 32px;
-            /* Changed Text Style: Removed the aggressive gradient/text fill. */
-            /* Use a solid, clear white, and add a subtle hover effect if desired. */
             color: #ffffff;
-            /* Optional: Add a subtle text shadow for depth */
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            /* Ensure old webkit properties are removed for a solid color */
-            -webkit-background-clip: unset; 
-            -webkit-text-fill-color: unset;
-            /* Added a span to accent the final part of the name (optional but professional) */
+            font-weight: 700;
+            transition: color 0.3s; /* Added transition for polish */
         }
 
-        /* Optional: To add a subtle color highlight to the "IN" part of ARIFIN */
+        /* Accent part of the name */
         .logo h1 span {
-            color: #00ccff; /* Use your existing accent color */
-            font-weight: 900; /* Make the accented part bolder */
+            color: #00ccff; 
+            font-weight: 900; 
         }
         
         /* Navigation (Desktop) */
         nav ul { display: flex; gap: 25px; list-style: none; }
-        nav ul li a { font-weight: 500; padding: 5px 10px; border-radius: 5px; }
-        nav ul li a:hover { background: #00ccff33; }
+        nav ul li a { 
+            font-weight: 500; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            position: relative;
+        }
+        nav ul li a:hover { color: #00ccff; } /* Simplified hover effect for consistency */
 
         /* Mobile Menu Button */
         .menu-toggle {
-            display: none; /* Hidden by default on desktop */
+            display: none; 
             background: none;
             border: none;
             color: #00ccff;
             font-size: 28px;
             cursor: pointer;
-            z-index: 1001; /* Ensure it's above other elements */
+            z-index: 1001; 
+            transition: transform 0.3s;
         }
         
         /* Home Section */
@@ -78,24 +92,29 @@
             justify-content: center;
             min-height: 100vh;
             padding: 0 20px;
-            background: linear-gradient(to right bottom, #000000, #0b0b0b);
+            background: linear-gradient(to bottom, #000000 0%, #0b0b0b 100%); /* Adjusted gradient direction */
             text-align: center;
             flex-direction: column;
             gap: 20px;
-            padding-top: 85px; /* height of header */
+            padding-top: 85px; 
         }
         .home-section img {
-            width: 200px;
-            height: 200px;
+            width: 180px; /* Slightly smaller for a cleaner look */
+            height: 180px;
             border-radius: 50%;
             border: 5px solid #00ccff;
             object-fit: cover;
-            transition: transform 0.3s;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3); /* Subtle glow effect */
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .home-section img:hover { transform: scale(1.05); }
-        .home-section h4 { font-size: 20px; letter-spacing: 2px; color: #ccc; }
-        .home-section h1 { font-size: 60px; margin: 10px 0; }
-        .home-section h3 { font-size: 24px; color: #00ccff; }
+        .home-section img:hover { 
+            transform: scale(1.05); 
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.6);
+        }
+        .home-section h4 { font-size: 18px; letter-spacing: 3px; color: #ccc; font-weight: 400; }
+        .home-section h1 { font-size: 72px; margin: 10px 0; font-family: 'Montserrat', sans-serif; }
+        .home-section h1 span { color: #00ccff; font-weight: 900; }
+        .home-section h3 { font-size: 24px; color: #00ccff; font-weight: 500; }
 
         /* About Section */
         .about-section {
@@ -108,74 +127,92 @@
             font-size: 50px;
             margin-bottom: 30px;
             color: #00ccff;
+            font-family: 'Montserrat', sans-serif;
         }
-        .about-section p { margin-bottom: 20px; color: #ccc; }
+        .about-section h2 span { color: #fff; }
+        .about-section p { margin-bottom: 20px; color: #ccc; font-size: 1.1em; }
         .about-section ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 30px;
         }
         .about-section ul li {
-            background: #111;
-            padding: 10px 20px;
-            border-radius: 25px;
+            background: #1a1a1a; /* Darker background */
+            padding: 8px 18px;
+            border-radius: 20px;
             color: #00ccff;
             font-weight: 500;
-            transition: 0.3s;
+            font-size: 0.9em;
+            transition: background 0.3s, transform 0.2s;
+            border: 1px solid #00ccff33;
         }
-        .about-section ul li:hover { background: #00ccff22; }
+        .about-section ul li:hover { 
+            background: #00ccff1a; 
+            transform: translateY(-2px);
+        }
 
         /* Projects Section */
         .projects-section {
             padding: 80px 0 80px 0;
-            background-color: #0b0b0b;
+            background-color: #000000; /* Made darker */
         }
         .projects-section h2 {
             text-align: center;
             font-size: 3em;
             color: #00ccff;
             margin-bottom: 50px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .projects-section p {
+            text-align: center;
+            color: #ccc;
+            font-size: 1.1em;
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
         }
         .slider {
             display: flex;
             gap: 30px;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            scroll-snap-type: x mandatory; /* Key for manual snapping */
             padding: 0 20px 20px;
             max-width: 100vw;
-            scrollbar-width: thin;
-            scrollbar-color: #00ccff #111;
             /* Hide scrollbar for cleaner look */
             -ms-overflow-style: none;
             scrollbar-width: none;
+            padding-bottom: 40px; /* Extra padding for the scroll area */
         }
         .slider::-webkit-scrollbar { display: none; }
+
         .slide {
             flex: 0 0 300px;
-            background: #111;
+            border: 1px solid #222;
+            box-shadow: 0 4px 24px rgba(0,204,255,0.08);
             border-radius: 16px;
+            background: #111;
             padding: 24px 18px 18px 18px;
             text-align: center;
             scroll-snap-align: start;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             min-width: 300px;
-            max-width: 300px;
-            box-shadow: 0 4px 24px rgba(0,204,255,0.08);
-            position: relative;
         }
         .slide:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 204, 255, 0.18);
+            transform: translateY(-5px); /* Changed to translateY for a lift effect */
+            box-shadow: 0 15px 35px rgba(0, 204, 255, 0.2);
+            border-color: #00ccff;
             z-index: 2;
         }
         .slide img {
-            width: 220px;
+            width: 100%; /* Image fills the container */
             height: 160px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 8px; /* Slightly smaller radius */
             margin: 0 auto 10px auto;
             background: #222;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -183,7 +220,7 @@
         .slide h3 {
             margin: 15px 0 8px 0;
             color: #00ccff;
-            font-size: 1.3em;
+            font-size: 1.4em; /* Slightly larger */
             font-weight: 700;
         }
         .slide p {
@@ -193,45 +230,35 @@
         }
 
         .tech-stack {
-            margin-top: 10px;
+            margin-top: 15px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 8px;
         }
         .tech-stack button {
-            background: linear-gradient(90deg, #111 60%, #00ccff22 100%);
+            background: #1a1a1a;
             color: #00ccff;
             border: 1px solid #00ccff44;
-            padding: 8px 22px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 15px;
-            margin: 2px 0;
-            box-shadow: 0 2px 8px rgba(0,204,255,0.07);
-            transition: 
-                background 0.3s,
-                color 0.3s,
-                box-shadow 0.3s,
-                border 0.3s;
-            cursor: pointer;
-            outline: none;
-            letter-spacing: 0.5px;
-            font-family: 'Montserrat', 'Roboto', sans-serif;
-            display: inline-block;
+            padding: 6px 16px; /* Smaller padding */
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 14px; /* Smaller font */
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+            cursor: default; /* Changed to default as they are not clickable links */
         }
         .tech-stack button:hover,
         .tech-stack button:focus {
-            background: linear-gradient(90deg, #00ccff 60%, #0b0b0b 100%);
+            background: #00ccff; /* Solid accent color on hover */
             color: #111;
-            border: 1.5px solid #00ccff;
-            box-shadow: 0 4px 18px rgba(0,204,255,0.18);
+            border-color: #00ccff;
+            box-shadow: 0 2px 8px rgba(0,204,255,0.2);
         }
 
         /* Contact Section */
         #contact {
             padding: 80px 20px;
-            background: #0b0b0b;
+            background: #000000; /* Darker background */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -252,6 +279,7 @@
             margin-bottom: 30px;
             text-align: center;
             font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
         }
         .form-row {
             display: flex;
@@ -276,13 +304,14 @@
             border: 1px solid #333;
             background: #0b0b0b;
             color: #fff;
-            transition: border 0.3s;
+            transition: border 0.3s, box-shadow 0.3s;
             font-size: 15px;
             resize: none;
         }
         .contact-form input:focus,
         .contact-form textarea:focus {
             border-color: #00ccff;
+            box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.2);
             outline: none;
         }
         .contact-form button[type="submit"] {
@@ -290,17 +319,18 @@
             padding: 14px;
             border: none;
             border-radius: 8px;
-            background: linear-gradient(90deg, #00ccff 60%, #0b0b0b 100%);
+            background: #00ccff; /* Solid color for better contrast */
             color: #111;
             font-weight: bold;
             font-size: 17px;
             cursor: pointer;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s, transform 0.2s;
             margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 204, 255, 0.3);
         }
         .contact-form button[type="submit"]:hover {
             background: #00b8e6;
-            color: #fff;
+            transform: translateY(-1px);
         }
         .contact-form i {
             margin-right: 7px;
@@ -311,182 +341,138 @@
             display: flex;
             justify-content: center;
             gap: 24px;
-            margin-top: 22px;
+            margin-top: 30px; /* Increased margin */
+            flex-wrap: wrap; /* Added for better mobile wrap */
         }
         .contact-media a {
             color: #00ccff;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 500;
             background: #111;
-            padding: 10px 18px;
+            padding: 10px 20px;
             border-radius: 25px;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 2px 8px rgba(0,204,255,0.07);
+            border: 1px solid #00ccff44;
         }
         .contact-media a:hover {
-            background: #00ccff22;
+            background: #00ccff1a; /* Lighter background hover */
             color: #fff;
+            transform: translateY(-2px);
         }
         .contact-media i {
-            font-size: 1.3em;
-            margin-right: 6px;
-        }
-        @media (max-width: 600px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            .contact-form {
-                padding: 20px;
-            }
+            font-size: 1.2em;
+            margin-right: 0; 
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            color: #ccc;
-        }
-
-        /* --- Responsive Adjustments (Mobile First) --- */
+        /* ==================================== */
+        /* MEDIA QUERIES (Responsiveness) */
+        /* ==================================== */
         @media (max-width: 768px) {
             /* Header and Navigation */
             header {
-                padding: 15px 20px; /* Reduce horizontal padding */
+                padding: 15px 20px;
             }
+            .logo h1 { font-size: 28px; }
+
             nav {
-                /* Make nav collapse and position absolutely for mobile */
                 position: absolute;
-                top: 66px; /* Below the header */
+                top: 66px; 
                 left: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.95);
+                background: rgba(0, 0, 0, 0.98);
                 box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-                display: none; /* Hidden by default */
-                transition: transform 0.3s ease-in-out;
+                display: none; 
+                padding-bottom: 10px;
             }
             nav.active {
-                display: block; /* Show when active class is added by JS */
+                display: block;
             }
             nav ul {
-                flex-direction: column; /* Stack links vertically */
+                flex-direction: column;
                 align-items: center;
-                padding: 10px 0;
+                gap: 0; /* Removed gap on mobile */
             }
             nav ul li {
                 width: 100%;
                 text-align: center;
-                padding: 10px 0;
+                padding: 0;
                 border-bottom: 1px solid #1a1a1a;
             }
             nav ul li:last-child {
                 border-bottom: none;
             }
             nav ul li a {
-                display: block; /* Make the whole list item clickable */
-                padding: 10px;
+                display: block;
+                padding: 12px 20px;
+                width: 100%;
             }
             .menu-toggle {
-                display: block; /* Show the hamburger button on mobile */
+                display: block;
             }
 
             /* Home Section */
-            .home-section h1 { font-size: 40px; }
-            .home-section h3 { font-size: 18px; }
-            .home-section img { width: 130px; height: 130px; border-width: 3px; }
+            .home-section h1 { font-size: 50px; }
+            .home-section h3 { font-size: 20px; }
+            .home-section img { width: 150px; height: 150px; border-width: 4px; }
+            .home-section h4 { font-size: 16px; }
 
             /* About Section */
             .about-section h2 { font-size: 40px; }
-            .about-section ul li { padding: 8px 15px; font-size: 14px; }
+            .about-section ul li { padding: 7px 14px; font-size: 13px; }
 
             /* Projects Section */
             .projects-section h2 { font-size: 2.5em; }
             .slider {
-                padding: 0 10px 20px; /* Less padding on slider */
+                padding: 0 16px 20px;
+                gap: 20px;
             }
-            .slide { flex: 0 0 80%; /* Make slides take up a larger percentage of the screen */ }
-            
+            .slide { 
+                min-width: 85vw; /* Slightly smaller width for more slides to peek */
+                padding: 20px 15px 15px;
+            }
             .slide img {
-                width: 100%;
-                height: 120px;
-                object-fit: cover;
-                border-radius: 8px;
-                margin: 0 auto 10px auto;
-                background: #222;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                height: 140px; /* Maintain height to prevent stretching */
+            }
+            .tech-stack button {
+                font-size: 12px;
+                padding: 5px 10px;
             }
 
             /* Contact Form */
-            form {
-                padding: 20px;
+            .contact-form {
+                padding: 25px;
             }
-
-            .tech-stack {
-                margin-top: 10px;
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
-
-            .tech-stack {
-                margin-top: 15px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
+            .contact-media {
+                flex-direction: column;
+                gap: 12px;
+                margin-top: 25px;
+                align-items: stretch;
             }
-            .tech-stack button {
-                background: linear-gradient(90deg, #111 60%, #00ccff22 100%);
-                color: #00ccff;
-                border: none;
-                padding: 12px 28px;
-                border-radius: 25px;
-                font-weight: 600;
+            .contact-media a {
                 font-size: 16px;
-                margin: 4px 6px 4px 0;
-                box-shadow: 0 2px 12px rgba(0,204,255,0.10);
-                transition: 
-                    background 0.3s,
-                    color 0.3s,
-                    box-shadow 0.3s;
-                cursor: pointer;
-                outline: none;
-                letter-spacing: 0.5px;
-                font-family: 'Montserrat', 'Roboto', sans-serif;
-                display: inline-block;
+                padding: 12px 0;
+                justify-content: center;
             }
-            .tech-stack button:hover,
-            .tech-stack button:focus {
-                background: linear-gradient(90deg, #00ccff 60%, #0b0b0b 100%);
-                color: #111;
-                box-shadow: 0 4px 18px rgba(0,204,255,0.18);
-            }
+        }
 
-            .slider {
-                padding: 0 10px 20px;
-                gap: 16px;
-            }
-            .slide {
-                min-width: 80vw;
-                max-width: 80vw;
-                padding: 16px 8px 12px 8px;
-            }
-            .slide img {
-                width: 100%;
-                height: 120px;
-            }
-            .tech-stack button {
-                font-size: 13px;
-                padding: 7px 14px;
-            }
+        @media (max-width: 480px) {
+            .home-section h1 { font-size: 40px; }
+            .home-section h3 { font-size: 18px; }
+            .home-section img { width: 120px; height: 120px; border-width: 3px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><h1>FIN<span class="accent">DEV</span></h1></div>
+        <div class="logo"><h1>Fin<span>Dev</span></h1></div>
         
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
@@ -520,18 +506,20 @@
 
     <section id="projects" class="projects-section">
         <h2>My Projects</h2>
-        <div class="slider">
+        <p>
+            Berikut beberapa karya dan aplikasi yang pernah saya buat, mulai dari desain logo hingga sistem aplikasi web.
+        </p>
+        <div class="slider" id="project-slider">
             <div class="slide">
-                <img src="findev0.png" alt="Project 1">
+                <img src="findev0.png" alt="Desain Logo FinDev Studio">
                 <h3>Desain Logo</h3>
                 <p>Logo FinDev Studio</p>
                 <div class="tech-stack">
                     <button>Corel Draw</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="findev01.png" alt="Project 2">
+                <img src="findev01.png" alt="Rental Mobil">
                 <h3>Rental</h3>
                 <p>Sistem rental mobil</p>
                 <div class="tech-stack">
@@ -540,9 +528,8 @@
                     <button>Bootstrap</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="findev01.png" alt="Project 2">
+                <img src="findev01.png" alt="PerpusKu">
                 <h3>PerpusKu</h3>
                 <p>Aplikasi peminjaman buku perpustakaan.</p>
                 <div class="tech-stack">
@@ -551,9 +538,8 @@
                     <button>Bootstrap</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="findev01.png" alt="Project 2">
+                <img src="findev01.png" alt="Booking Ruangan">
                 <h3>Booking</h3>
                 <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
                 <div class="tech-stack">
@@ -563,9 +549,8 @@
                     <button>Tellywine</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="fingo.png" alt="Project 4">
+                <img src="fingo.png" alt="FinGo">
                 <h3>FinGo</h3>
                 <p>Aplikasi kasir</p>
                 <div class="tech-stack">
@@ -574,9 +559,8 @@
                     <button>JavaScript</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="Logo SMK.png" style="width: auto;" alt="Project 3">
+                <img src="Logo SMK.png" alt="EkstraKu">
                 <h3>EkstraKu</h3>
                 <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
                 <div class="tech-stack">
@@ -586,9 +570,8 @@
                     <button>Chart.js</button>
                 </div>
             </div>
-
             <div class="slide">
-                <img src="Logo SMK.png" style="width: auto;" alt="Project 4">
+                <img src="Logo SMK.png" alt="AkademiKu">
                 <h3>AkademiKu</h3>
                 <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
                 <div class="tech-stack">
@@ -601,7 +584,7 @@
     </section>
 
     <section id="contact">
-        <form action="contact.php" method="POST" class="contact-form">
+        <form action="#" method="POST" class="contact-form">
             <legend><i class="fas fa-envelope"></i> Contact Me</legend>
             <div class="form-row">
                 <div class="form-group">
@@ -642,12 +625,14 @@
     </footer>
 
     <script>
+        // === Mobile Navigation Toggle ===
         document.getElementById('menu-toggle').onclick = function() {
             var navMenu = document.getElementById('nav-menu');
+            var icon = this.querySelector('i');
+            
             navMenu.classList.toggle('active');
             
-            // Change the icon from bars to close (optional)
-            var icon = this.querySelector('i');
+            // Toggle icon from bars to close
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
@@ -657,36 +642,26 @@
             }
         };
 
-        // Close menu when a link is clicked
+        // === Close menu when a link is clicked ===
         document.querySelectorAll('#nav-menu a').forEach(item => {
             item.addEventListener('click', () => {
-                document.getElementById('nav-menu').classList.remove('active');
-                document.getElementById('menu-toggle').querySelector('i').classList.remove('fa-times');
-                document.getElementById('menu-toggle').querySelector('i').classList.add('fa-bars');
+                const navMenu = document.getElementById('nav-menu');
+                const menuToggle = document.getElementById('menu-toggle');
+                const icon = menuToggle.querySelector('i');
+
+                // Only close if the menu is active AND we are on a mobile size (optional but safer)
+                if (navMenu.classList.contains('active') && window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
             });
         });
 
-        // Carousel infinite auto-scroll
-        const slider = document.querySelector('.slider');
-        if (slider) {
-            // Duplicate slides for seamless loop
-            const slides = slider.querySelectorAll('.slide');
-            slides.forEach(slide => {
-                const clone = slide.cloneNode(true);
-                clone.classList.add('clone');
-                slider.appendChild(clone);
-            });
-
-            let speed = 1.5; // Adjust speed here
-            function loopScroll() {
-                if (slider.scrollLeft >= slider.scrollWidth / 2) {
-                    slider.scrollLeft = 0;
-                }
-                slider.scrollLeft += speed;
-                requestAnimationFrame(loopScroll);
-            }
-            loopScroll();
-        }
+        // === REMOVED THE INFINITE AUTO-SCROLL JS ===
+        // The previous code using requestAnimationFrame was removed to improve
+        // mobile/touch scrolling experience. CSS scroll-snap-type now handles 
+        // a much smoother, user-controlled carousel.
     </script>
 
 </body>
