@@ -42,7 +42,6 @@ img { display: block; max-width: 100%; }
 section {
     padding: 80px 20px;
     margin: 0 auto;
-    /* Tambahan: Pastikan semua teks di section rata tengah kecuali ditentukan lain */
     text-align: center; 
 }
 
@@ -119,7 +118,16 @@ nav ul li a:hover::after {
 }
 
 /* Mobile Menu Button */
-.menu-toggle { display: none; background: none; border: none; color: var(--primary-color); font-size: 28px; cursor: pointer; z-index: 1001; transition: transform 0.3s; }
+.menu-toggle { 
+    display: none; 
+    background: none; 
+    border: none; 
+    color: var(--primary-color); 
+    font-size: 28px; 
+    cursor: pointer; 
+    z-index: 1001; 
+    transition: transform 0.3s; 
+}
 
 /* --- Home Section --- */
 .home-section {
@@ -150,7 +158,6 @@ nav ul li a:hover::after {
 /* --- About Section --- */
 .about-section {
     max-width: 1000px;
-    /* PENTING: Untuk centering element blok */
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -161,13 +168,13 @@ nav ul li a:hover::after {
     font-size: 1.1em; 
     max-width: 750px; 
     margin-left: auto; 
-    margin-right: auto; /* PENTING: Centering teks paragraph */
+    margin-right: auto; 
 }
 .about-section ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* PENTING: Centering daftar skill */
+    justify-content: center; 
     gap: 12px;
     margin-top: 30px;
 }
@@ -183,7 +190,7 @@ nav ul li a:hover::after {
     display: flex;
     align-items: center;
 }
-.about-section ul li i { margin-right: 5px; } /* Style untuk ikon skill */
+.about-section ul li i { margin-right: 5px; }
 
 .about-section ul li:hover { 
     background: var(--primary-color)22; 
@@ -197,12 +204,10 @@ nav ul li a:hover::after {
     color: var(--primary-color);
 }
 .certificates ul {
-    /* Set back to default list styling for certificate list */
     display: block; 
     text-align: center;
 }
 .certificates ul li {
-    /* Set back to default list styling for certificate list */
     display: inline-block;
     width: auto;
     margin: 0 10px 12px 10px;
@@ -221,7 +226,7 @@ nav ul li a:hover::after {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    justify-content: center; /* PENTING: Centering teks link sertifikat */
+    justify-content: center; 
 }
 .certificates ul li a:hover {
     background: #222222;
@@ -235,7 +240,7 @@ nav ul li a:hover::after {
 }
 .projects-section p {
     max-width: 750px;
-    margin: 0 auto 40px auto; /* PENTING: Centering teks paragraph */
+    margin: 0 auto 40px auto; 
 }
 
 .slider {
@@ -247,7 +252,6 @@ nav ul li a:hover::after {
     -ms-overflow-style: none;
     scrollbar-width: none;
     padding-bottom: 40px;
-    /* Tidak perlu centering di sini karena slider adalah full-width scrollable container */
 }
 .slider::-webkit-scrollbar { display: none; }
 
@@ -274,7 +278,7 @@ nav ul li a:hover::after {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid #333;
-    margin: 0 auto 10px auto; /* PENTING: Centering gambar di dalam slide */
+    margin: 0 auto 10px auto; 
 }
 .slide h3 {
     margin: 20px 0 10px 0;
@@ -288,13 +292,13 @@ nav ul li a:hover::after {
     color: var(--light-text);
     margin-bottom: 15px;
     margin-left: auto;
-    margin-right: auto; /* Centering paragraf di dalam slide */
+    margin-right: auto; 
 }
 
 .tech-stack {
     margin-top: 18px;
     gap: 10px;
-    justify-content: center; /* PENTING: Centering tombol tech stack */
+    justify-content: center; 
 }
 .tech-stack button {
     background: #222222;
@@ -319,7 +323,6 @@ nav ul li a:hover::after {
 }
 .contact-form {
     max-width: 650px;
-    /* PENTING: Centering form */
     margin-left: auto;
     margin-right: auto; 
     background: linear-gradient(145deg, #181818, #0a0a0a);
@@ -327,7 +330,7 @@ nav ul li a:hover::after {
     border-radius: 15px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px var(--primary-color)15;
     border: 1px solid #333;
-    text-align: left; /* Kembalikan teks di dalam form ke rata kiri agar rapi */
+    text-align: left; 
 }
 .contact-form legend {
     font-size: 32px;
@@ -373,7 +376,7 @@ nav ul li a:hover::after {
 .contact-media {
     gap: 30px;
     margin-top: 40px;
-    justify-content: center; /* PENTING: Centering tombol media sosial */
+    justify-content: center; 
 }
 .contact-media a {
     color: var(--primary-color);
@@ -385,6 +388,7 @@ nav ul li a:hover::after {
     box-shadow: 0 0 10px var(--primary-color)11;
     display: flex;
     align-items: center;
+    gap: 8px; /* Tambahkan gap agar ikon dan teks tidak menempel */
 }
 .contact-media a:hover {
     background: var(--primary-color);
@@ -403,16 +407,47 @@ nav ul li a:hover::after {
     .contact-form { padding: 40px 30px; }
 }
 
+/* Tablet & Mobile (Standard Breakpoint) */
 @media (max-width: 768px) {
-    header { padding: 15px 20px; }
+    /* --- Navigasi Mobile (Hamburger) --- */
+    nav {
+        position: absolute;
+        top: 61px; 
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+        display: none; 
+        padding-bottom: 10px;
+    }
+    nav.active {
+        display: block;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0; 
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #1a1a1a;
+    }
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    nav ul li a {
+        display: block;
+        padding: 12px 20px;
+        width: 100%;
+    }
+    .menu-toggle {
+        display: block; /* Tampilkan tombol hamburger */
+    }
+
     .home-section h1 { font-size: 55px; }
     .home-section h3 { font-size: 22px; }
     section h2 { font-size: 2.5em; }
-    
-    nav { top: 61px; }
-
-    /* Mobile Menu Style */
-    nav ul li { border-bottom: 1px solid #1a1a1a; }
     
     .contact-form { padding: 30px; }
     .form-row { flex-direction: column; gap: 0; }
@@ -436,23 +471,36 @@ nav ul li a:hover::after {
     }
 }
 
+/* Small Mobile (Centering Social Media Text) */
 @media (max-width: 600px) {
     .home-section h1 { font-size: 45px; }
     .home-section h3 { font-size: 20px; }
+    
+    /* --- Medsos: Tampilkan Kembali Teksnya --- */
     .contact-media {
-        flex-direction: row;
+        flex-direction: column; /* Ubah menjadi kolom agar tombol besar */
         gap: 10px;
+        align-items: stretch; /* Tombol media sosial akan mengisi lebar penuh */
     }
-    .contact-media a span { display: none; }
+    .contact-media a span { 
+        display: inline-block; /* Teks media sosial ditampilkan */
+    }
     .contact-media a {
-        font-size: 20px;
-        padding: 10px;
-        min-width: 45px;
+        font-size: 16px;
+        padding: 12px 15px;
         justify-content: center;
     }
+    /* Ikon tidak perlu margin-right karena sudah ada gap di .contact-media a */
+
     .contact-form {
         border-radius: 10px;
     }
+}
+
+@media (max-width: 480px) {
+    .home-section h1 { font-size: 40px; }
+    .home-section h3 { font-size: 18px; }
+    .home-section img { width: 120px; height: 120px; border-width: 3px; }
 }
     </style>
 </head>
@@ -496,7 +544,7 @@ nav ul li a:hover::after {
             <li><i class="fab fa-python"></i> Python</li>
             <li><i class="fab fa-figma"></i> Figma</li>
             <li><i class="fas fa-palette"></i> Corel Draw</li>
-            <li><i class="fab fa-adobe"></i> Adobe XD</li>
+            <li><i class="fas fa-adobe"></i> Adobe XD</li>
             <li><i class="fab fa-adobe"></i> Adobe Illustrator</li>
         </ul>
 
@@ -512,7 +560,7 @@ nav ul li a:hover::after {
                 <li>
                     <a href="sertifikat_dasar_cloud.pdf" target="_blank">
                         <i class="fas fa-award"></i>
-                        Dicoding: Belajar Dasar Cloud dan Gen AI di AWS
+                        Dicoding: Belajar Dasar Cloud dan Gen AI AWS
                     </a>
                 </li>
             </ul>
@@ -527,7 +575,7 @@ nav ul li a:hover::after {
         <div class="slider" id="project-slider">
             <div class="slide">
                 <img src="findev0.png" alt="Desain Logo FinDev Studio">
-                <h3>Desain <span>Logo</span></h3>
+                <h3>Desain Logo</h3>
                 <p>Logo FinDev Studio</p>
                 <div class="tech-stack">
                     <button>Corel Draw</button>
@@ -535,7 +583,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="Rental Mobil">
-                <h3><span>Rental</span> Mobil</h3>
+                <h3>Rental Mobil</h3>
                 <p>Sistem rental mobil</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -545,7 +593,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="PerpusKu">
-                <h3><span>Perpus</span>Ku</h3>
+                <h3>Perpus<span>Ku</span></h3>
                 <p>Aplikasi peminjaman buku perpustakaan.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -555,7 +603,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="Booking Ruangan">
-                <h3><span>Booking</span> Ruangan</h3>
+                <h3>Booking Ruangan</h3>
                 <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -566,7 +614,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="fingo.png" alt="FinGo">
-                <h3><span>Fin</span>Go</h3>
+                <h3>Fin<span>Go</span></h3>
                 <p>Aplikasi kasir</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -576,7 +624,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="Logo SMK.png" alt="EkstraKu">
-                <h3><span>Ekstra</span>Ku</h3>
+                <h3>Ekstra<span>Ku</span></h3>
                 <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -587,7 +635,7 @@ nav ul li a:hover::after {
             </div>
             <div class="slide">
                 <img src="Logo SMK.png" alt="AkademiKu">
-                <h3><span>Akademi</span>Ku</h3>
+                <h3>Akademi<span>Ku</span></h3>
                 <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -629,17 +677,17 @@ nav ul li a:hover::after {
             <a href="https://instagram.com/findev_std" target="_blank" title="Instagram">
                 <i class="fab fa-instagram"></i> <span>Instagram</span>
             </a>
+            <a href="https://github.com/arifin0887" target="_blank" title="LinkedIn">
+                <i class="fab fa-github"></i> <span>GitHub</span>
+            </a>
             <a href="mailto:ngaripin@gmail.com" target="_blank" title="Email">
                 <i class="fas fa-envelope"></i> <span>Email</span>
-            </a>
-            <a href="#" target="_blank" title="LinkedIn">
-                <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Muhammad Arifin. All Rights Reserved.</p>
+        <p>&copy; 2024 - 2025 Findev Studio. All Rights Reserved.</p>
     </footer>
 
     <script>
