@@ -153,6 +153,37 @@
             background: #00ccff1a; 
             transform: translateY(-2px);
         }
+        .about-section .certificates {
+            margin-top: 40px;
+            text-align: left;
+        }
+        .about-section .certificates h3 {
+            color: #00ccff;
+            margin-bottom: 18px;
+        }
+        .about-section .certificates ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            display: inline-block;
+        }
+        .about-section .certificates ul li {
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 16px;
+            padding: 10px 18px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,204,255,0.07);
+            border: 1px solid #00ccff22;
+        }
+        .certificates h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+        }
 
         /* Projects Section */
         .projects-section {
@@ -252,7 +283,7 @@
             background: #00ccff; /* Solid accent color on hover */
             color: #111;
             border-color: #00ccff;
-            box-shadow: 0 2px 8px rgba(0,204,255,0.2);
+            box-shadow: 0 2px 8px rgba(0, 204, 255, 0.2);
         }
 
         /* Contact Section */
@@ -462,6 +493,18 @@
             }
         }
 
+        @media (max-width: 600px) {
+            .contact-media a {
+                font-size: 22px;
+                padding: 12px;
+                min-width: 48px;
+                justify-content: center;
+            }
+            .contact-media a span {
+                display: none;
+            }
+        }
+
         @media (max-width: 480px) {
             .home-section h1 { font-size: 40px; }
             .home-section h3 { font-size: 18px; }
@@ -502,6 +545,23 @@
             <li>HTML</li><li>PHP</li><li>CSS</li><li>Java</li><li>MySQL</li><li>Laravel</li>
             <li>Python</li><li>Figma</li><li>Corel Draw</li><li>Adobe XD</li><li>Adobe Illustrator</li>
         </ul>
+        <div class="certificates">
+            <h3 style="color:#00ccff; margin-top:40px; margin-bottom:18px;">Sertifikat</h3>
+            <ul>
+                <li>
+                    <a href="sertifikat_dasar_ai.pdf" target="_blank" style="display:flex;align-items:center;color:inherit;">
+                        <i class="fas fa-certificate" style="color:#00ccff; margin-right:8px;"></i>
+                        Dicoding: Belajar Dasar AI
+                    </a>
+                </li>
+                <li>
+                    <a href="sertifikat_dasar_cloud.pdf" target="_blank" style="display:flex;align-items:center;color:inherit;">
+                        <i class="fas fa-certificate" style="color:#00ccff; margin-right:8px;"></i>
+                        Dicoding: Belajar Dasar Cloud dan Gen AI di AWS
+                    </a>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section id="projects" class="projects-section">
@@ -609,13 +669,13 @@
 
         <div class="contact-media">
             <a href="https://wa.me/6288740068553" target="_blank" title="WhatsApp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
+                <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
             </a>
             <a href="https://instagram.com/findev_std" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i> Instagram
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
             </a>
             <a href="mailto:ngaripin@gmail.com" target="_blank" title="Email">
-                <i class="fas fa-envelope"></i> Email
+                <i class="fas fa-envelope"></i> <span>Email</span>
             </a>
         </div>
     </section>
