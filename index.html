@@ -4,525 +4,462 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Muhammad Arifin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
-        /* Reset & Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Roboto', sans-serif; 
-            background-color: #0b0b0b; 
-            color: #f0f0f0; 
-            line-height: 1.6; 
-            overflow-x: hidden; /* Prevents horizontal scroll from absolute elements */
-        }
-
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        a:hover { color: #00ccff; }
-
-        img { display: block; max-width: 100%; }
-
-        /* Footer (Added) */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            color: #ccc;
-            font-size: 0.9em;
-            margin-top: 50px;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(0, 0, 0, 0.9); /* Slightly more opaque for readability */
-            padding: 15px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        .logo h1 {
-            /* Using the chosen professional font */
-            font-family: 'Montserrat', sans-serif;
-            font-size: 32px;
-            color: #ffffff;
-            font-weight: 700;
-            transition: color 0.3s; /* Added transition for polish */
-        }
-
-        /* Accent part of the name */
-        .logo h1 span {
-            color: #00ccff; 
-            font-weight: 900; 
-        }
-        
-        /* Navigation (Desktop) */
-        nav ul { display: flex; gap: 25px; list-style: none; }
-        nav ul li a { 
-            font-weight: 500; 
-            padding: 5px 10px; 
-            border-radius: 5px; 
-            position: relative;
-        }
-        nav ul li a:hover { color: #00ccff; } /* Simplified hover effect for consistency */
-
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none; 
-            background: none;
-            border: none;
-            color: #00ccff;
-            font-size: 28px;
-            cursor: pointer;
-            z-index: 1001; 
-            transition: transform 0.3s;
-        }
-        
-        /* Home Section */
-        .home-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 0 20px;
-            background: linear-gradient(to bottom, #000000 0%, #0b0b0b 100%); /* Adjusted gradient direction */
-            text-align: center;
-            flex-direction: column;
-            gap: 20px;
-            padding-top: 85px; 
-        }
-        .home-section img {
-            width: 180px; /* Slightly smaller for a cleaner look */
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid #00ccff;
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3); /* Subtle glow effect */
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .home-section img:hover { 
-            transform: scale(1.05); 
-            box-shadow: 0 0 30px rgba(0, 204, 255, 0.6);
-        }
-        .home-section h4 { font-size: 18px; letter-spacing: 3px; color: #ccc; font-weight: 400; }
-        .home-section h1 { font-size: 72px; margin: 10px 0; font-family: 'Montserrat', sans-serif; }
-        .home-section h1 span { color: #00ccff; font-weight: 900; }
-        .home-section h3 { font-size: 24px; color: #00ccff; font-weight: 500; }
-
-        /* About Section */
-        .about-section {
-            padding: 80px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .about-section h2 {
-            font-size: 50px;
-            margin-bottom: 30px;
-            color: #00ccff;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .about-section h2 span { color: #fff; }
-        .about-section p { margin-bottom: 20px; color: #ccc; font-size: 1.1em; }
-        .about-section ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 30px;
-        }
-        .about-section ul li {
-            background: #1a1a1a; /* Darker background */
-            padding: 8px 18px;
-            border-radius: 20px;
-            color: #00ccff;
-            font-weight: 500;
-            font-size: 0.9em;
-            transition: background 0.3s, transform 0.2s;
-            border: 1px solid #00ccff33;
-        }
-        .about-section ul li:hover { 
-            background: #00ccff1a; 
-            transform: translateY(-2px);
-        }
-        .about-section .certificates {
-            margin-top: 40px;
-            text-align: left;
-        }
-        .about-section .certificates h3 {
-            color: #00ccff;
-            margin-bottom: 18px;
-        }
-        .about-section .certificates ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-align: left;
-            display: inline-block;
-        }
-        .about-section .certificates ul li {
-            background: #1a1a1a;
-            color: #fff;
-            border-radius: 16px;
-            padding: 10px 18px;
-            margin-bottom: 10px;
-            font-size: 1em;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,204,255,0.07);
-            border: 1px solid #00ccff22;
-        }
-        .certificates h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4em;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            padding: 80px 0 80px 0;
-            background-color: #000000; /* Made darker */
-        }
-        .projects-section h2 {
-            text-align: center;
-            font-size: 3em;
-            color: #00ccff;
-            margin-bottom: 50px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .projects-section p {
-            text-align: center;
-            color: #ccc;
-            font-size: 1.1em;
-            margin-bottom: 32px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
-        }
-        .slider {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory; /* Key for manual snapping */
-            padding: 0 20px 20px;
-            max-width: 100vw;
-            /* Hide scrollbar for cleaner look */
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-            padding-bottom: 40px; /* Extra padding for the scroll area */
-        }
-        .slider::-webkit-scrollbar { display: none; }
-
-        .slide {
-            flex: 0 0 300px;
-            border: 1px solid #222;
-            box-shadow: 0 4px 24px rgba(0,204,255,0.08);
-            border-radius: 16px;
-            background: #111;
-            padding: 24px 18px 18px 18px;
-            text-align: center;
-            scroll-snap-align: start;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            min-width: 300px;
-        }
-        .slide:hover {
-            transform: translateY(-5px); /* Changed to translateY for a lift effect */
-            box-shadow: 0 15px 35px rgba(0, 204, 255, 0.2);
-            border-color: #00ccff;
-            z-index: 2;
-        }
-        .slide img {
-            width: 100%; /* Image fills the container */
-            height: 160px;
-            object-fit: cover;
-            border-radius: 8px; /* Slightly smaller radius */
-            margin: 0 auto 10px auto;
-            background: #222;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .slide h3 {
-            margin: 15px 0 8px 0;
-            color: #00ccff;
-            font-size: 1.4em; /* Slightly larger */
-            font-weight: 700;
-        }
-        .slide p {
-            font-size: 15px;
-            color: #ccc;
-            margin-bottom: 12px;
-        }
-
-        .tech-stack {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-        }
-        .tech-stack button {
-            background: #1a1a1a;
-            color: #00ccff;
-            border: 1px solid #00ccff44;
-            padding: 6px 16px; /* Smaller padding */
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 14px; /* Smaller font */
-            transition: background 0.3s, color 0.3s, border-color 0.3s;
-            cursor: default; /* Changed to default as they are not clickable links */
-        }
-        .tech-stack button:hover,
-        .tech-stack button:focus {
-            background: #00ccff; /* Solid accent color on hover */
-            color: #111;
-            border-color: #00ccff;
-            box-shadow: 0 2px 8px rgba(0, 204, 255, 0.2);
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 80px 20px;
-            background: #000000; /* Darker background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .contact-form {
-            max-width: 600px;
-            width: 100%;
-            background: #111;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin: auto;
-        }
-        .contact-form legend {
-            font-size: 28px;
-            color: #00ccff;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        .form-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 18px;
-        }
-        .contact-form label {
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #ccc;
-            font-size: 15px;
-        }
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: #0b0b0b;
-            color: #fff;
-            transition: border 0.3s, box-shadow 0.3s;
-            font-size: 15px;
-            resize: none;
-        }
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #00ccff;
-            box-shadow: 0 0 0 3px rgba(0, 204, 255, 0.2);
-            outline: none;
-        }
-        .contact-form button[type="submit"] {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #00ccff; /* Solid color for better contrast */
-            color: #111;
-            font-weight: bold;
-            font-size: 17px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            margin-top: 10px;
-            box-shadow: 0 4px 10px rgba(0, 204, 255, 0.3);
-        }
-        .contact-form button[type="submit"]:hover {
-            background: #00b8e6;
-            transform: translateY(-1px);
-        }
-        .contact-form i {
-            margin-right: 7px;
-            color: #00ccff;
-            font-size: 1em;
-        }
-        .contact-media {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 30px; /* Increased margin */
-            flex-wrap: wrap; /* Added for better mobile wrap */
-        }
-        .contact-media a {
-            color: #00ccff;
-            font-size: 17px;
-            font-weight: 500;
-            background: #111;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: background 0.3s, color 0.3s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid #00ccff44;
-        }
-        .contact-media a:hover {
-            background: #00ccff1a; /* Lighter background hover */
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        .contact-media i {
-            font-size: 1.2em;
-            margin-right: 0; 
-        }
-
         /* ==================================== */
-        /* MEDIA QUERIES (Responsiveness) */
-        /* ==================================== */
-        @media (max-width: 768px) {
-            /* Header and Navigation */
-            header {
-                padding: 15px 20px;
-            }
-            .logo h1 { font-size: 28px; }
+/* GANTI SELURUH KODE CSS ANDA DENGAN INI */
+/* ==================================== */
 
-            nav {
-                position: absolute;
-                top: 66px; 
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.98);
-                box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-                display: none; 
-                padding-bottom: 10px;
-            }
-            nav.active {
-                display: block;
-            }
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 0; /* Removed gap on mobile */
-            }
-            nav ul li {
-                width: 100%;
-                text-align: center;
-                padding: 0;
-                border-bottom: 1px solid #1a1a1a;
-            }
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-            nav ul li a {
-                display: block;
-                padding: 12px 20px;
-                width: 100%;
-            }
-            .menu-toggle {
-                display: block;
-            }
+/* Variables and Base */
+:root {
+    --primary-color: #00ccff; /* Neon Blue */
+    --secondary-color: #ffffff;
+    --dark-bg: #070707; /* Super Dark Background */
+    --card-bg: #111111;
+    --text-color: #f0f0f0;
+    --light-text: #cccccc;
+}
 
-            /* Home Section */
-            .home-section h1 { font-size: 50px; }
-            .home-section h3 { font-size: 20px; }
-            .home-section img { width: 150px; height: 150px; border-width: 4px; }
-            .home-section h4 { font-size: 16px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { 
+    font-family: 'Roboto', sans-serif; 
+    background-color: var(--dark-bg); 
+    color: var(--text-color); 
+    line-height: 1.6; 
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+}
 
-            /* About Section */
-            .about-section h2 { font-size: 40px; }
-            .about-section ul li { padding: 7px 14px; font-size: 13px; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+a:hover { color: var(--primary-color); }
 
-            /* Projects Section */
-            .projects-section h2 { font-size: 2.5em; }
-            .slider {
-                padding: 0 16px 20px;
-                gap: 20px;
-            }
-            .slide { 
-                min-width: 85vw; /* Slightly smaller width for more slides to peek */
-                padding: 20px 15px 15px;
-            }
-            .slide img {
-                height: 140px; /* Maintain height to prevent stretching */
-            }
-            .tech-stack button {
-                font-size: 12px;
-                padding: 5px 10px;
-            }
+img { display: block; max-width: 100%; }
 
-            /* Contact Form */
-            .contact-form {
-                padding: 25px;
-            }
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            .contact-media {
-                flex-direction: column;
-                gap: 12px;
-                margin-top: 25px;
-                align-items: stretch;
-            }
-            .contact-media a {
-                font-size: 16px;
-                padding: 12px 0;
-                justify-content: center;
-            }
-        }
+/* General Section Styling */
+section {
+    padding: 80px 20px;
+    margin: 0 auto;
+    /* Tambahan: Pastikan semua teks di section rata tengah kecuali ditentukan lain */
+    text-align: center; 
+}
 
-        @media (max-width: 600px) {
-            .contact-media {
-                flex-direction: row !important;
-                gap: 10px;
-                justify-content: center;
-                align-items: center;
-                margin-top: 18px;
-            }
-            .contact-media a {
-                font-size: 22px;
-                padding: 10px;
-                min-width: 44px;
-                justify-content: center;
-            }
-            .contact-media a span {
-                display: none;
-            }
-        }
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+}
+section h2 span { color: var(--secondary-color); }
 
-        @media (max-width: 480px) {
-            .home-section h1 { font-size: 40px; }
-            .home-section h3 { font-size: 18px; }
-            .home-section img { width: 120px; height: 120px; border-width: 3px; }
-        }
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #000000;
+    color: var(--light-text);
+    font-size: 0.9em;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0, 204, 255, 0.1);
+}
+
+/* --- Header --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}
+.logo h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+.logo h1 span {
+    color: var(--primary-color); 
+    font-weight: 900; 
+    letter-spacing: -2px;
+}
+
+/* Navigation (Desktop) */
+nav ul { display: flex; gap: 30px; list-style: none; }
+nav ul li a { 
+    font-weight: 400; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    position: relative;
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Mobile Menu Button */
+.menu-toggle { display: none; background: none; border: none; color: var(--primary-color); font-size: 28px; cursor: pointer; z-index: 1001; transition: transform 0.3s; }
+
+/* --- Home Section --- */
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #111111 0%, var(--dark-bg) 100%);
+    padding-top: 100px;
+}
+.home-section img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 30px rgba(0, 204, 255, 0.6), 0 0 50px rgba(0, 204, 255, 0.1);
+}
+.home-section img:hover { 
+    transform: scale(1.05) rotate(3deg);
+}
+.home-section h4 { font-size: 18px; letter-spacing: 4px; color: var(--light-text); font-weight: 300; text-transform: uppercase; }
+.home-section h1 { font-size: 90px; margin: 10px 0; font-family: 'Montserrat', sans-serif; line-height: 1; }
+.home-section h1 span { color: var(--primary-color); font-weight: 900; }
+.home-section h3 { font-size: 28px; color: var(--primary-color); font-weight: 500; text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+
+/* --- About Section --- */
+.about-section {
+    max-width: 1000px;
+    /* PENTING: Untuk centering element blok */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.about-section p { 
+    margin-bottom: 25px; 
+    color: var(--light-text); 
+    font-size: 1.1em; 
+    max-width: 750px; 
+    margin-left: auto; 
+    margin-right: auto; /* PENTING: Centering teks paragraph */
+}
+.about-section ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* PENTING: Centering daftar skill */
+    gap: 12px;
+    margin-top: 30px;
+}
+.about-section ul li {
+    background: #1a1a1a;
+    padding: 8px 20px;
+    border-radius: 25px;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: 1px solid var(--primary-color)33;
+    display: flex;
+    align-items: center;
+}
+.about-section ul li i { margin-right: 5px; } /* Style untuk ikon skill */
+
+.about-section ul li:hover { 
+    background: var(--primary-color)22; 
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px var(--primary-color)44;
+}
+.certificates h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    margin-top: 40px;
+    color: var(--primary-color);
+}
+.certificates ul {
+    /* Set back to default list styling for certificate list */
+    display: block; 
+    text-align: center;
+}
+.certificates ul li {
+    /* Set back to default list styling for certificate list */
+    display: inline-block;
+    width: auto;
+    margin: 0 10px 12px 10px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    transition: none;
+    box-shadow: none;
+    transform: none;
+}
+.certificates ul li a {
+    padding: 12px 20px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid var(--primary-color)22;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* PENTING: Centering teks link sertifikat */
+}
+.certificates ul li a:hover {
+    background: #222222;
+    color: var(--secondary-color);
+}
+
+/* --- Projects Section --- */
+.projects-section {
+    background-color: #000000;
+    border-top: 1px solid rgba(0, 204, 255, 0.1);
+}
+.projects-section p {
+    max-width: 750px;
+    margin: 0 auto 40px auto; /* PENTING: Centering teks paragraph */
+}
+
+.slider {
+    display: flex;
+    gap: 40px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0 20px 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 40px;
+    /* Tidak perlu centering di sini karena slider adalah full-width scrollable container */
+}
+.slider::-webkit-scrollbar { display: none; }
+
+.slide {
+    flex: 0 0 320px;
+    border: 1px solid #222;
+    box-shadow: 0 6px 30px rgba(0, 204, 255, 0.1);
+    border-radius: 16px;
+    background: linear-gradient(145deg, #111111, #0a0a0a);
+    padding: 24px 20px 20px 20px;
+    text-align: center;
+    scroll-snap-align: start;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+    min-width: 320px;
+    perspective: 1000px;
+}
+.slide:hover {
+    transform: translateY(-8px) rotateY(3deg);
+    box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3), 0 0 50px rgba(0, 204, 255, 0.1);
+    border-color: var(--primary-color);
+}
+.slide img {
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+    margin: 0 auto 10px auto; /* PENTING: Centering gambar di dalam slide */
+}
+.slide h3 {
+    margin: 20px 0 10px 0;
+    color: var(--secondary-color);
+    font-size: 1.6em;
+    font-weight: 700;
+}
+.slide h3 span { color: var(--primary-color); }
+.slide p {
+    font-size: 16px;
+    color: var(--light-text);
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto; /* Centering paragraf di dalam slide */
+}
+
+.tech-stack {
+    margin-top: 18px;
+    gap: 10px;
+    justify-content: center; /* PENTING: Centering tombol tech stack */
+}
+.tech-stack button {
+    background: #222222;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color)55;
+    padding: 7px 18px;
+    border-radius: 25px;
+    font-weight: 400;
+    font-size: 14px;
+}
+.tech-stack button:hover {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 204, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* --- Contact Section --- */
+#contact {
+    background: var(--dark-bg);
+}
+.contact-form {
+    max-width: 650px;
+    /* PENTING: Centering form */
+    margin-left: auto;
+    margin-right: auto; 
+    background: linear-gradient(145deg, #181818, #0a0a0a);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px var(--primary-color)15;
+    border: 1px solid #333;
+    text-align: left; /* Kembalikan teks di dalam form ke rata kiri agar rapi */
+}
+.contact-form legend {
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+}
+.form-row { gap: 25px; }
+.form-group { margin-bottom: 20px; }
+
+.contact-form input,
+.contact-form textarea {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    background: #000000;
+    color: var(--text-color);
+    font-size: 16px;
+    width: 100%;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0, 204, 255, 0.4);
+}
+
+.contact-form button[type="submit"] {
+    padding: 16px;
+    background: var(--primary-color);
+    color: #000;
+    font-size: 18px;
+    box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
+    width: 100%;
+}
+.contact-form button[type="submit"]:hover {
+    background: #00e5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 204, 255, 0.8);
+}
+.contact-form i { color: var(--primary-color); margin-right: 8px; }
+
+.contact-media {
+    gap: 30px;
+    margin-top: 40px;
+    justify-content: center; /* PENTING: Centering tombol media sosial */
+}
+.contact-media a {
+    color: var(--primary-color);
+    background: #111;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    border: 1px solid var(--primary-color)44;
+    box-shadow: 0 0 10px var(--primary-color)11;
+    display: flex;
+    align-items: center;
+}
+.contact-media a:hover {
+    background: var(--primary-color);
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+.contact-media a:hover i {
+    color: var(--dark-bg);
+}
+
+/* ==================================== */
+/* MEDIA QUERIES (Responsiveness) */
+/* ==================================== */
+@media (max-width: 992px) {
+    .home-section h1 { font-size: 70px; }
+    .contact-form { padding: 40px 30px; }
+}
+
+@media (max-width: 768px) {
+    header { padding: 15px 20px; }
+    .home-section h1 { font-size: 55px; }
+    .home-section h3 { font-size: 22px; }
+    section h2 { font-size: 2.5em; }
+    
+    nav { top: 61px; }
+
+    /* Mobile Menu Style */
+    nav ul li { border-bottom: 1px solid #1a1a1a; }
+    
+    .contact-form { padding: 30px; }
+    .form-row { flex-direction: column; gap: 0; }
+    
+    .slide { 
+        min-width: 80vw;
+        flex: 0 0 80vw; 
+    }
+    .slider { gap: 20px; }
+
+    .contact-media {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .contact-media a {
+        flex-grow: 1;
+        justify-content: center;
+        min-width: unset;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-section h1 { font-size: 45px; }
+    .home-section h3 { font-size: 20px; }
+    .contact-media {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .contact-media a span { display: none; }
+    .contact-media a {
+        font-size: 20px;
+        padding: 10px;
+        min-width: 45px;
+        justify-content: center;
+    }
+    .contact-form {
+        border-radius: 10px;
+    }
+}
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo"><h1>Fin<span>Dev</span></h1></div>
+        <div class="logo"><h1>Fin<span style="text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color)aa;">Dev</span></h1></div>
         
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
@@ -548,22 +485,33 @@
     <section id="about" class="about-section">
         <h2>About <span>Me</span></h2>
         <p>Hello, my name is Muhammad Arifin, and I am a passionate web developer and designer from Indonesia. I focus on creating clean, efficient, and visually appealing user experiences, leveraging both my technical coding skills and creative design expertise.</p>
+        
         <ul>
-            <li>HTML</li><li>PHP</li><li>CSS</li><li>Java</li><li>MySQL</li><li>Laravel</li>
-            <li>Python</li><li>Figma</li><li>Corel Draw</li><li>Adobe XD</li><li>Adobe Illustrator</li>
+            <li><i class="fab fa-html5"></i> HTML</li>
+            <li><i class="fab fa-php"></i> PHP</li>
+            <li><i class="fab fa-css3-alt"></i> CSS</li>
+            <li><i class="fab fa-java"></i> Java</li>
+            <li><i class="fas fa-database"></i> MySQL</li>
+            <li><i class="fab fa-laravel"></i> Laravel</li>
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fab fa-figma"></i> Figma</li>
+            <li><i class="fas fa-palette"></i> Corel Draw</li>
+            <li><i class="fab fa-adobe"></i> Adobe XD</li>
+            <li><i class="fab fa-adobe"></i> Adobe Illustrator</li>
         </ul>
+
         <div class="certificates">
-            <h3 style="color:#00ccff; margin-top:40px; margin-bottom:18px;">Sertifikat</h3>
+            <h3><i class="fas fa-graduation-cap"></i> Certificates</h3>
             <ul>
                 <li>
-                    <a href="sertifikat_dasar_ai.pdf" target="_blank" style="display:flex;align-items:center;color:inherit;">
-                        <i class="fas fa-certificate" style="color:#00ccff; margin-right:8px;"></i>
+                    <a href="sertifikat_dasar_ai.pdf" target="_blank">
+                        <i class="fas fa-award"></i>
                         Dicoding: Belajar Dasar AI
                     </a>
                 </li>
                 <li>
-                    <a href="sertifikat_dasar_cloud.pdf" target="_blank" style="display:flex;align-items:center;color:inherit;">
-                        <i class="fas fa-certificate" style="color:#00ccff; margin-right:8px;"></i>
+                    <a href="sertifikat_dasar_cloud.pdf" target="_blank">
+                        <i class="fas fa-award"></i>
                         Dicoding: Belajar Dasar Cloud dan Gen AI di AWS
                     </a>
                 </li>
@@ -572,14 +520,14 @@
     </section>
 
     <section id="projects" class="projects-section">
-        <h2>My Projects</h2>
+        <h2>My <span>Projects</span></h2>
         <p>
-            Berikut beberapa karya dan aplikasi yang pernah saya buat, mulai dari desain logo hingga sistem aplikasi web.
+            Berikut beberapa karya dan aplikasi yang pernah saya buat, mulai dari desain logo hingga sistem aplikasi web. Geser ke samping untuk melihat lebih banyak!
         </p>
         <div class="slider" id="project-slider">
             <div class="slide">
                 <img src="findev0.png" alt="Desain Logo FinDev Studio">
-                <h3>Desain Logo</h3>
+                <h3>Desain <span>Logo</span></h3>
                 <p>Logo FinDev Studio</p>
                 <div class="tech-stack">
                     <button>Corel Draw</button>
@@ -587,7 +535,7 @@
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="Rental Mobil">
-                <h3>Rental</h3>
+                <h3><span>Rental</span> Mobil</h3>
                 <p>Sistem rental mobil</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -597,7 +545,7 @@
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="PerpusKu">
-                <h3>PerpusKu</h3>
+                <h3><span>Perpus</span>Ku</h3>
                 <p>Aplikasi peminjaman buku perpustakaan.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -607,18 +555,18 @@
             </div>
             <div class="slide">
                 <img src="findev01.png" alt="Booking Ruangan">
-                <h3>Booking</h3>
+                <h3><span>Booking</span> Ruangan</h3>
                 <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
                     <button>MySQL</button>
                     <button>Laravel</button>
-                    <button>Tellywine</button>
+                    <button>Tailwind</button>
                 </div>
             </div>
             <div class="slide">
                 <img src="fingo.png" alt="FinGo">
-                <h3>FinGo</h3>
+                <h3><span>Fin</span>Go</h3>
                 <p>Aplikasi kasir</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -628,7 +576,7 @@
             </div>
             <div class="slide">
                 <img src="Logo SMK.png" alt="EkstraKu">
-                <h3>EkstraKu</h3>
+                <h3><span>Ekstra</span>Ku</h3>
                 <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -639,7 +587,7 @@
             </div>
             <div class="slide">
                 <img src="Logo SMK.png" alt="AkademiKu">
-                <h3>AkademiKu</h3>
+                <h3><span>Akademi</span>Ku</h3>
                 <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
                 <div class="tech-stack">
                     <button>PHP</button>
@@ -652,7 +600,7 @@
 
     <section id="contact">
         <form action="#" method="POST" class="contact-form">
-            <legend><i class="fas fa-envelope"></i> Contact Me</legend>
+            <legend><i class="fas fa-headset"></i> Get In Touch</legend>
             <div class="form-row">
                 <div class="form-group">
                     <label for="name"><i class="fas fa-user"></i> Name</label>
@@ -683,6 +631,9 @@
             </a>
             <a href="mailto:ngaripin@gmail.com" target="_blank" title="Email">
                 <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="#" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
             </a>
         </div>
     </section>
@@ -716,7 +667,6 @@
                 const menuToggle = document.getElementById('menu-toggle');
                 const icon = menuToggle.querySelector('i');
 
-                // Only close if the menu is active AND we are on a mobile size (optional but safer)
                 if (navMenu.classList.contains('active') && window.innerWidth <= 768) {
                     navMenu.classList.remove('active');
                     icon.classList.remove('fa-times');
@@ -724,11 +674,6 @@
                 }
             });
         });
-
-        // === REMOVED THE INFINITE AUTO-SCROLL JS ===
-        // The previous code using requestAnimationFrame was removed to improve
-        // mobile/touch scrolling experience. CSS scroll-snap-type now handles 
-        // a much smoother, user-controlled carousel.
     </script>
 
 </body>
