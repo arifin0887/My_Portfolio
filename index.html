@@ -4,504 +4,528 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Muhammad Arifin</title>
+    <link rel="icon" href="findev01.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <style>
         /* ==================================== */
-/* GANTI SELURUH KODE CSS ANDA DENGAN INI */
-/* ==================================== */
+        /* GANTI SELURUH KODE CSS ANDA DENGAN INI */
+        /* ==================================== */
 
-/* Variables and Base */
-:root {
-    --primary-color: #00ccff; /* Neon Blue */
-    --secondary-color: #ffffff;
-    --dark-bg: #070707; /* Super Dark Background */
-    --card-bg: #111111;
-    --text-color: #f0f0f0;
-    --light-text: #cccccc;
-}
+        /* Variables and Base */
+        :root {
+            --primary-color: #00ccff; /* Neon Blue */
+            --secondary-color: #ffffff;
+            --dark-bg: #070707; /* Super Dark Background */
+            --card-bg: #111111;
+            --text-color: #f0f0f0;
+            --light-text: #cccccc;
+        }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { 
-    font-family: 'Roboto', sans-serif; 
-    background-color: var(--dark-bg); 
-    color: var(--text-color); 
-    line-height: 1.6; 
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: var(--dark-bg); 
+            color: var(--text-color); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+        }
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-a:hover { color: var(--primary-color); }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--primary-color); }
 
-img { display: block; max-width: 100%; }
+        img { display: block; max-width: 100%; }
 
-/* General Section Styling */
-section {
-    padding: 80px 20px;
-    margin: 0 auto;
-    text-align: center; 
-}
+        /* General Section Styling */
+        section {
+            padding: 80px 20px;
+            margin: 0 auto;
+            text-align: center; 
+        }
 
-section h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 50px;
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
-}
-section h2 span { color: var(--secondary-color); }
+        section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.3);
+        }
+        section h2 span { color: var(--secondary-color); }
 
 
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #000000;
-    color: var(--light-text);
-    font-size: 0.9em;
-    margin-top: 50px;
-    border-top: 1px solid rgba(0, 204, 255, 0.1);
-}
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000000;
+            color: var(--light-text);
+            font-size: 0.9em;
+            margin-top: 50px;
+            border-top: 1px solid rgba(0, 204, 255, 0.1);
+        }
 
-/* --- Header --- */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.95);
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-}
-.logo h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    color: var(--secondary-color);
-    font-weight: 700;
-}
-.logo h1 span {
-    color: var(--primary-color); 
-    font-weight: 900; 
-    letter-spacing: -2px;
-}
+        /* --- Header --- */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        .logo h1 span {
+            color: var(--primary-color); 
+            font-weight: 900; 
+            letter-spacing: -2px;
+        }
 
-/* Navigation (Desktop) */
-nav ul { display: flex; gap: 30px; list-style: none; }
-nav ul li a { 
-    font-weight: 400; 
-    padding: 5px 10px; 
-    border-radius: 5px; 
-    position: relative;
-}
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease, left 0.3s ease;
-}
-nav ul li a:hover::after {
-    width: 100%;
-    left: 0;
-}
+        /* Navigation (Desktop) */
+        nav ul { display: flex; gap: 30px; list-style: none; }
+        nav ul li a { 
+            font-weight: 400; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
 
-/* Mobile Menu Button */
-.menu-toggle { 
-    display: none; 
-    background: none; 
-    border: none; 
-    color: var(--primary-color); 
-    font-size: 28px; 
-    cursor: pointer; 
-    z-index: 1001; 
-    transition: transform 0.3s; 
-}
+        /* Mobile Menu Button */
+        .menu-toggle { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: var(--primary-color); 
+            font-size: 28px; 
+            cursor: pointer; 
+            z-index: 1001; 
+            transition: transform 0.3s; 
+        }
 
-/* --- Home Section --- */
-.home-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #111111 0%, var(--dark-bg) 100%);
-    padding-top: 100px;
-}
-.home-section img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 5px solid var(--primary-color);
-    box-shadow: 0 0 30px rgba(0, 204, 255, 0.6), 0 0 50px rgba(0, 204, 255, 0.1);
-}
-.home-section img:hover { 
-    transform: scale(1.05) rotate(3deg);
-}
-.home-section h4 { font-size: 18px; letter-spacing: 4px; color: var(--light-text); font-weight: 300; text-transform: uppercase; }
-.home-section h1 { font-size: 90px; margin: 10px 0; font-family: 'Montserrat', sans-serif; line-height: 1; }
-.home-section h1 span { color: var(--primary-color); font-weight: 900; }
-.home-section h3 { font-size: 28px; color: var(--primary-color); font-weight: 500; text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
+        /* --- Home Section --- */
+        .home-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #111111 0%, var(--dark-bg) 100%);
+            padding-top: 100px;
+        }
+        .home-section img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.6), 0 0 50px rgba(0, 204, 255, 0.1);
+        }
+        .home-section img:hover { 
+            transform: scale(1.05) rotate(3deg);
+        }
+        .home-section h4 { font-size: 18px; letter-spacing: 4px; color: var(--light-text); font-weight: 300; text-transform: uppercase; }
+        .home-section h1 { font-size: 90px; margin: 10px 0; font-family: 'Montserrat', sans-serif; line-height: 1; }
+        .home-section h1 span { color: var(--primary-color); font-weight: 900; }
+        .home-section h3 { font-size: 28px; color: var(--primary-color); font-weight: 500; text-shadow: 0 0 5px rgba(0, 204, 255, 0.5); }
 
-/* --- About Section --- */
-.about-section {
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-.about-section p { 
-    margin-bottom: 25px; 
-    color: var(--light-text); 
-    font-size: 1.1em; 
-    max-width: 750px; 
-    margin-left: auto; 
-    margin-right: auto; 
-}
-.about-section ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 12px;
-    margin-top: 30px;
-}
-.about-section ul li {
-    background: #1a1a1a;
-    padding: 8px 20px;
-    border-radius: 25px;
-    color: var(--primary-color);
-    font-weight: 500;
-    font-size: 0.95em;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-    border: 1px solid var(--primary-color)33;
-    display: flex;
-    align-items: center;
-}
-.about-section ul li i { margin-right: 5px; }
+        /* --- About Section --- */
+        .about-section {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .about-section p { 
+            margin-bottom: 25px; 
+            color: var(--light-text); 
+            font-size: 1.1em; 
+            max-width: 750px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .about-section ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .about-section ul li {
+            background: #1a1a1a;
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            border: 1px solid var(--primary-color)33;
+            display: flex;
+            align-items: center;
+        }
+        .about-section ul li i { margin-right: 5px; }
 
-.about-section ul li:hover { 
-    background: var(--primary-color)22; 
-    transform: translateY(-3px);
-    box-shadow: 0 4px 15px var(--primary-color)44;
-}
-.certificates h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    margin-top: 40px;
-    color: var(--primary-color);
-}
-.certificates ul {
-    display: block; 
-    text-align: center;
-}
-.certificates ul li {
-    display: inline-block;
-    width: auto;
-    margin: 0 10px 12px 10px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    transition: none;
-    box-shadow: none;
-    transform: none;
-}
-.certificates ul li a {
-    padding: 12px 20px;
-    background: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid var(--primary-color)22;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-.certificates ul li a:hover {
-    background: #222222;
-    color: var(--secondary-color);
-}
+        .about-section ul li:hover { 
+            background: var(--primary-color)22; 
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px var(--primary-color)44;
+        }
 
-/* --- Projects Section --- */
-.projects-section {
-    background-color: #000000;
-    border-top: 1px solid rgba(0, 204, 255, 0.1);
-}
-.projects-section p {
-    max-width: 750px;
-    margin: 0 auto 40px auto; 
-}
+        .certificates {
+    margin-top: 60px;
+        }
 
-.slider {
-    display: flex;
-    gap: 40px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 0 20px 20px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    padding-bottom: 40px;
-}
-.slider::-webkit-scrollbar { display: none; }
+        .certificates h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-align: center;
+        }
 
-.slide {
-    flex: 0 0 320px;
-    border: 1px solid #222;
-    box-shadow: 0 6px 30px rgba(0, 204, 255, 0.1);
-    border-radius: 16px;
-    background: linear-gradient(145deg, #111111, #0a0a0a);
-    padding: 24px 20px 20px 20px;
-    text-align: center;
-    scroll-snap-align: start;
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
-    min-width: 320px;
-    perspective: 1000px;
-}
-.slide:hover {
-    transform: translateY(-8px) rotateY(3deg);
-    box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3), 0 0 50px rgba(0, 204, 255, 0.1);
-    border-color: var(--primary-color);
-}
-.slide img {
-    height: 180px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    border: 1px solid #333;
-    margin: 0 auto 10px auto; 
-}
-.slide h3 {
-    margin: 20px 0 10px 0;
-    color: var(--secondary-color);
-    font-size: 1.6em;
-    font-weight: 700;
-}
-.slide h3 span { color: var(--primary-color); }
-.slide p {
-    font-size: 16px;
-    color: var(--light-text);
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto; 
-}
+        .certificates ul {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px;
+            list-style: none;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE */
+        }
+        .certificates ul::-webkit-scrollbar {
+            display: none; /* Chrome */
+        }
 
-.tech-stack {
-    margin-top: 18px;
-    gap: 10px;
-    justify-content: center; 
-}
-.tech-stack button {
-    background: #222222;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color)55;
-    padding: 7px 18px;
-    border-radius: 25px;
-    font-weight: 400;
-    font-size: 14px;
-}
-.tech-stack button:hover {
-    background: var(--primary-color);
-    color: var(--dark-bg);
-    border-color: var(--primary-color);
-    box-shadow: 0 2px 10px rgba(0, 204, 255, 0.5);
-    transform: scale(1.05);
-}
+        .certificates ul li {
+            flex: 0 0 250px; /* Lebar tiap kartu */
+            scroll-snap-align: start;
+            border: 1px solid #222;
+            border-radius: 15px;
+            background: linear-gradient(145deg, #111, #0a0a0a);
+            box-shadow: 0 8px 25px rgba(0, 204, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .certificates ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 204, 255, 0.3);
+            border-color: var(--primary-color);
+        }
 
-/* --- Contact Section --- */
-#contact {
-    background: var(--dark-bg);
-}
-.contact-form {
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto; 
-    background: linear-gradient(145deg, #181818, #0a0a0a);
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px var(--primary-color)15;
-    border: 1px solid #333;
-    text-align: left; 
-}
-.contact-form legend {
-    font-size: 32px;
-    color: var(--primary-color);
-    margin-bottom: 40px;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
-}
-.form-row { gap: 25px; }
-.form-group { margin-bottom: 20px; }
+        .certificates ul li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            color: var(--text-color);
+            font-weight: 500;
+            text-align: center;
+        }
 
-.contact-form input,
-.contact-form textarea {
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #444;
-    background: #000000;
-    color: var(--text-color);
-    font-size: 16px;
-    width: 100%;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(0, 204, 255, 0.4);
-}
+        .certificates ul li a i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-.contact-form button[type="submit"] {
-    padding: 16px;
-    background: var(--primary-color);
-    color: #000;
-    font-size: 18px;
-    box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
-    width: 100%;
-}
-.contact-form button[type="submit"]:hover {
-    background: #00e5ff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 204, 255, 0.8);
-}
-.contact-form i { color: var(--primary-color); margin-right: 8px; }
+        /* --- Projects Section --- */
+        .projects-section {
+            background-color: #000000;
+            border-top: 1px solid rgba(0, 204, 255, 0.1);
+        }
+        .projects-section p {
+            max-width: 750px;
+            margin: 0 auto 40px auto; 
+        }
 
-.contact-media {
-    gap: 30px;
-    margin-top: 40px;
-    justify-content: center; 
-}
-.contact-media a {
-    color: var(--primary-color);
-    background: #111;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 18px;
-    border: 1px solid var(--primary-color)44;
-    box-shadow: 0 0 10px var(--primary-color)11;
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Tambahkan gap agar ikon dan teks tidak menempel */
-}
-.contact-media a:hover {
-    background: var(--primary-color);
-    color: var(--dark-bg);
-    transform: scale(1.05);
-}
-.contact-media a:hover i {
-    color: var(--dark-bg);
-}
+        .slider {
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 20px 20px;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding-bottom: 40px;
+        }
+        .slider::-webkit-scrollbar { display: none; }
 
-/* ==================================== */
-/* MEDIA QUERIES (Responsiveness) */
-/* ==================================== */
-@media (max-width: 992px) {
-    .home-section h1 { font-size: 70px; }
-    .contact-form { padding: 40px 30px; }
-}
+        .slide {
+            flex: 0 0 320px;
+            border: 1px solid #222;
+            box-shadow: 0 6px 30px rgba(0, 204, 255, 0.1);
+            border-radius: 16px;
+            background: linear-gradient(145deg, #111111, #0a0a0a);
+            padding: 24px 20px 20px 20px;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+            min-width: 320px;
+            perspective: 1000px;
+        }
+        .slide:hover {
+            transform: translateY(-8px) rotateY(3deg);
+            box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3), 0 0 50px rgba(0, 204, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        .slide img {
+            height: 180px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid #333;
+            margin: 0 auto 10px auto; 
+        }
+        .slide h3 {
+            margin: 20px 0 10px 0;
+            color: var(--secondary-color);
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .slide h3 span { color: var(--primary-color); }
+        .slide p {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto; 
+        }
 
-/* Tablet & Mobile (Standard Breakpoint) */
-@media (max-width: 768px) {
-    /* --- Navigasi Mobile (Hamburger) --- */
-    nav {
-        position: absolute;
-        top: 61px; 
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.98);
-        box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-        display: none; 
-        padding-bottom: 10px;
-    }
-    nav.active {
-        display: block;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0; 
-    }
-    nav ul li {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #1a1a1a;
-    }
-    nav ul li:last-child {
-        border-bottom: none;
-    }
-    nav ul li a {
-        display: block;
-        padding: 12px 20px;
-        width: 100%;
-    }
-    .menu-toggle {
-        display: block; /* Tampilkan tombol hamburger */
-    }
+        .tech-stack {
+            margin-top: 18px;
+            gap: 10px;
+            justify-content: center; 
+        }
+        .tech-stack button {
+            background: #222222;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color)55;
+            padding: 7px 18px;
+            border-radius: 25px;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .tech-stack button:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0, 204, 255, 0.5);
+            transform: scale(1.05);
+        }
 
-    .home-section h1 { font-size: 55px; }
-    .home-section h3 { font-size: 22px; }
-    section h2 { font-size: 2.5em; }
-    
-    .contact-form { padding: 30px; }
-    .form-row { flex-direction: column; gap: 0; }
-    
-    .slide { 
-        min-width: 80vw;
-        flex: 0 0 80vw; 
-    }
-    .slider { gap: 20px; }
+        /* --- Contact Section --- */
+        #contact {
+            background: var(--dark-bg);
+        }
+        .contact-form {
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto; 
+            background: linear-gradient(145deg, #181818, #0a0a0a);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px var(--primary-color)15;
+            border: 1px solid #333;
+            text-align: left; 
+        }
+        .contact-form legend {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+        }
+        .form-row { gap: 25px; }
+        .form-group { margin-bottom: 20px; }
 
-    .contact-media {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    .contact-media a {
-        flex-grow: 1;
-        justify-content: center;
-        min-width: unset;
-        padding: 12px 15px;
-    }
-}
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #444;
+            background: #000000;
+            color: var(--text-color);
+            font-size: 16px;
+            width: 100%;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0, 204, 255, 0.4);
+        }
 
-/* Small Mobile (Centering Social Media Text) */
-@media (max-width: 600px) {
-    .home-section h1 { font-size: 45px; }
-    .home-section h3 { font-size: 20px; }
-    
-    /* --- Medsos: Tampilkan Kembali Teksnya --- */
-    .contact-media {
-        flex-direction: column; /* Ubah menjadi kolom agar tombol besar */
-        gap: 10px;
-        align-items: stretch; /* Tombol media sosial akan mengisi lebar penuh */
-    }
-    .contact-media a span { 
-        display: inline-block; /* Teks media sosial ditampilkan */
-    }
-    .contact-media a {
-        font-size: 16px;
-        padding: 12px 15px;
-        justify-content: center;
-    }
-    /* Ikon tidak perlu margin-right karena sudah ada gap di .contact-media a */
+        .contact-form button[type="submit"] {
+            padding: 16px;
+            background: var(--primary-color);
+            color: #000;
+            font-size: 18px;
+            box-shadow: 0 6px 15px rgba(0, 204, 255, 0.5);
+            width: 100%;
+        }
+        .contact-form button[type="submit"]:hover {
+            background: #00e5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 204, 255, 0.8);
+        }
+        .contact-form i { color: var(--primary-color); margin-right: 8px; }
 
-    .contact-form {
-        border-radius: 10px;
-    }
-}
+        .contact-media {
+            gap: 30px;
+            margin-top: 40px;
+            justify-content: center; 
+        }
+        .contact-media a {
+            color: var(--primary-color);
+            background: #111;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 18px;
+            border: 1px solid var(--primary-color)44;
+            box-shadow: 0 0 10px var(--primary-color)11;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Tambahkan gap agar ikon dan teks tidak menempel */
+        }
+        .contact-media a:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: scale(1.05);
+        }
+        .contact-media a:hover i {
+            color: var(--dark-bg);
+        }
 
-@media (max-width: 480px) {
-    .home-section h1 { font-size: 40px; }
-    .home-section h3 { font-size: 18px; }
-    .home-section img { width: 120px; height: 120px; border-width: 3px; }
-}
+        /* ==================================== */
+        /* MEDIA QUERIES (Responsiveness) */
+        /* ==================================== */
+        @media (max-width: 992px) {
+            .home-section h1 { font-size: 70px; }
+            .contact-form { padding: 40px 30px; }
+        }
+
+        /* Tablet & Mobile (Standard Breakpoint) */
+        @media (max-width: 768px) {
+            /* --- Navigasi Mobile (Hamburger) --- */
+            nav {
+                position: absolute;
+                top: 61px; 
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+                display: none; 
+                padding-bottom: 10px;
+            }
+            nav.active {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0; 
+            }
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #1a1a1a;
+            }
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+                width: 100%;
+            }
+            .menu-toggle {
+                display: block; /* Tampilkan tombol hamburger */
+            }
+
+            .home-section h1 { font-size: 55px; }
+            .home-section h3 { font-size: 22px; }
+            section h2 { font-size: 2.5em; }
+            
+            .contact-form { padding: 30px; }
+            .form-row { flex-direction: column; gap: 0; }
+            
+            .slide { 
+                min-width: 80vw;
+                flex: 0 0 80vw; 
+            }
+            .slider { gap: 20px; }
+
+            .contact-media {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .contact-media a {
+                flex-grow: 1;
+                justify-content: center;
+                min-width: unset;
+                padding: 12px 15px;
+            }
+        }
+
+        /* Small Mobile (Centering Social Media Text) */
+        @media (max-width: 600px) {
+            .home-section h1 { font-size: 45px; }
+            .home-section h3 { font-size: 20px; }
+            
+            /* --- Medsos: Tampilkan Kembali Teksnya --- */
+            .contact-media {
+                flex-direction: column; /* Ubah menjadi kolom agar tombol besar */
+                gap: 10px;
+                align-items: stretch; /* Tombol media sosial akan mengisi lebar penuh */
+            }
+            .contact-media a span { 
+                display: inline-block; /* Teks media sosial ditampilkan */
+            }
+            .contact-media a {
+                font-size: 16px;
+                padding: 12px 15px;
+                justify-content: center;
+            }
+            /* Ikon tidak perlu margin-right karena sudah ada gap di .contact-media a */
+
+            .contact-form {
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-section h1 { font-size: 40px; }
+            .home-section h3 { font-size: 18px; }
+            .home-section img { width: 120px; height: 120px; border-width: 3px; }
+        }
     </style>
 </head>
 <body>
@@ -563,8 +587,10 @@ nav ul li a:hover::after {
                         Dicoding: Belajar Dasar Cloud dan Gen AI AWS
                     </a>
                 </li>
+                <!-- Tambahkan lainnya di sini -->
             </ul>
         </div>
+
     </section>
 
     <section id="projects" class="projects-section">
@@ -582,29 +608,31 @@ nav ul li a:hover::after {
                 </div>
             </div>
             <div class="slide">
-                <img src="findev01.png" alt="Rental Mobil">
+                <img src="logo.jpg" alt="Rental Mobil">
                 <h3>Rental Mobil</h3>
-                <p>Sistem rental mobil</p>
+                <p>Sistem kelola data rental mobil</p>
                 <div class="tech-stack">
+                    <button>HTML</button>
                     <button>PHP</button>
                     <button>MySQL</button>
                     <button>Bootstrap</button>
                 </div>
             </div>
             <div class="slide">
-                <img src="findev01.png" alt="PerpusKu">
+                <img src="perpus.png" alt="PerpusKu">
                 <h3>Perpus<span>Ku</span></h3>
                 <p>Aplikasi peminjaman buku perpustakaan.</p>
                 <div class="tech-stack">
+                    <button>HTML</button>
                     <button>PHP</button>
                     <button>MySQL</button>
                     <button>Bootstrap</button>
                 </div>
             </div>
             <div class="slide">
-                <img src="findev01.png" alt="Booking Ruangan">
-                <h3>Booking Ruangan</h3>
-                <p>Aplikasi booking ruangan dalam industri perhotelan.</p>
+                <img src="hotelku.png" alt="Booking Ruangan">
+                <h3>Hotal<span>Ku</span></h3>
+                <p>Aplikasi administrasi perhotelan.</p>
                 <div class="tech-stack">
                     <button>PHP</button>
                     <button>MySQL</button>
@@ -613,10 +641,11 @@ nav ul li a:hover::after {
                 </div>
             </div>
             <div class="slide">
-                <img src="fingo.png" alt="FinGo">
+                <img src="fin_go.png" alt="FinGo">
                 <h3>Fin<span>Go</span></h3>
                 <p>Aplikasi kasir</p>
                 <div class="tech-stack">
+                    <button>HTML</button>
                     <button>PHP</button>
                     <button>MySQL</button>
                     <button>JavaScript</button>
@@ -638,7 +667,40 @@ nav ul li a:hover::after {
                 <h3>Akademi<span>Ku</span></h3>
                 <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
                 <div class="tech-stack">
+                    <button>HTML</button>
                     <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="berita.png" alt="AkademiKu">
+                <h3><span>Fin</span>News</h3>
+                <p>Aplikasi mengelola update brita terbaru</p>
+                <div class="tech-stack">
+                    <button>HTML</button>
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="Logo SMK.png" alt="AkademiKu">
+                <h3>Pay School<span>Ku</span></h3>
+                <p>Aplikasi input nilai sekaligus pembayaran SMKN 2 Magelang</p>
+                <div class="tech-stack">
+                    <button>HTML</button>
+                    <button>PHP</button>
+                    <button>MySQL</button>
+                    <button>Bootstrap</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="paston.png" alt="AkademiKu">
+                <h3>Paskanida <span>Tonti</span></h3>
+                <p>Website organisasi paskibra SMKN 2 Magelang</p>
+                <div class="tech-stack">
+                    <button>HTML</button>
                     <button>MySQL</button>
                     <button>Bootstrap</button>
                 </div>
@@ -685,6 +747,50 @@ nav ul li a:hover::after {
             </a>
         </div>
     </section>
+
+    <!-- <section style="margin-top: 40px; text-align: center; color: var(--light-text); font-size: 0.9em;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>
+                <strong>Tentang saya:</strong> Saya adalah seorang <b>web developer</b> dan <b>designer</b> 
+                yang berfokus pada pembuatan pengalaman pengguna yang bersih, efisien, dan menarik secara visual. 
+                Saya menggabungkan keterampilan teknis dalam <b>coding</b> dengan keahlian kreatif dalam <b>desain</b> 
+                untuk menghasilkan solusi digital yang efektif dan estetis.
+            </p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h4 style="color: var(--primary-color);">Menu</h4>
+            <nav style="margin-top: 10px;">
+                <a href="#home" style="margin: 0 15px; text-decoration: none; color: var(--light-text);">Home</a>
+                <a href="#projects" style="margin: 0 15px; text-decoration: none; color: var(--light-text);">Projects</a>
+                <a href="#skills" style="margin: 0 15px; text-decoration: none; color: var(--light-text);">Skills</a>
+                <a href="#achievements" style="margin: 0 15px; text-decoration: none; color: var(--light-text);">Achievements</a>
+                <a href="#contact" style="margin: 0 15px; text-decoration: none; color: var(--light-text);">Contact</a>
+            </nav>
+        </div>
+
+        <div id="contact" style="margin-top: 30px;">
+            <h4 style="color: var(--primary-color);">Contact Me</h4>
+            <p style="margin-top: 10px;">
+                Email: 
+                <a href="mailto:ngaripin6@gmail.com" style="color: var(--primary-color); text-decoration: none;">
+                    ngaripin6@gmail.com
+                </a>
+            </p>
+            <p>
+                Instagram: 
+                <a href="https://www.instagram.com/muhammadarifin.dev" target="_blank" style="color: var(--primary-color); text-decoration: none;">
+                    @muhammadarifin.dev
+                </a>
+            </p>
+            <p>
+                LinkedIn: 
+                <a href="https://www.linkedin.com/in/muhammadarifin" target="_blank" style="color: var(--primary-color); text-decoration: none;">
+                    Muhammad Arifin
+                </a>
+            </p>
+        </div>
+    </section> -->
 
     <footer>
         <p>&copy; 2024 - 2025 Findev Studio. All Rights Reserved.</p>
