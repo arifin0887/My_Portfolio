@@ -200,61 +200,67 @@
         }
 
         .certificates {
-    margin-top: 60px;
+            margin-top: 40px;
+            text-align: center;
         }
 
         .certificates h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-            text-align: center;
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 20px;
         }
 
-        .certificates ul {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding: 20px;
-            list-style: none;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE */
-        }
-        .certificates ul::-webkit-scrollbar {
-            display: none; /* Chrome */
+        .certificates-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+        padding: 10px;
+        scroll-snap-type: x mandatory;
         }
 
-        .certificates ul li {
-            flex: 0 0 250px; /* Lebar tiap kartu */
-            scroll-snap-align: start;
-            border: 1px solid #222;
-            border-radius: 15px;
-            background: linear-gradient(145deg, #111, #0a0a0a);
-            box-shadow: 0 8px 25px rgba(0, 204, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s;
-        }
-        .certificates ul li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 204, 255, 0.3);
-            border-color: var(--primary-color);
+        .certificate-card {
+        min-width: 240px;
+        background: var(--card-bg, #ffffff);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        padding: 15px;
+        text-align: left;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .certificates ul li a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            color: var(--text-color);
-            font-weight: 500;
-            text-align: center;
+        .certificate-card a {
+        color: var(--text-color, #333);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         }
 
-        .certificates ul li a i {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .certificate-card i {
+        font-size: 22px;
+        color: #f4b400;
+        }
+
+        .certificate-card span {
+        font-size: 0.95em;
+        font-weight: 500;
+        }
+
+        .certificate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        }
+
+        /* Scrollbar halus dan kecil untuk Android */
+        .certificates-container::-webkit-scrollbar {
+        height: 6px;
+        }
+
+        .certificates-container::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
         }
 
         /* --- Projects Section --- */
@@ -530,66 +536,81 @@
 
         /* --- Skills Section --- */
         .skills-section {
-        text-align: center;
         padding: 100px 20px;
+        text-align: center;
         background: radial-gradient(circle at top, #0a0a0a 0%, #000000 100%);
         border-top: 1px solid rgba(0, 204, 255, 0.1);
         }
 
-        .skills-section p {
-        max-width: 750px;
-        margin: 0 auto 50px;
-        color: var(--light-text);
-        font-size: 1em;
-        }
-
-        .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 30px;
-        justify-items: center;
-        }
-
-        .skill-card {
-        background: linear-gradient(145deg, #111, #0a0a0a);
-        border: 1px solid #222;
-        border-radius: 15px;
-        padding: 30px 20px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s;
-        box-shadow: 0 5px 25px rgba(0, 204, 255, 0.1);
-        }
-
-        .skill-card:hover {
-        transform: translateY(-8px);
-        border-color: var(--primary-color);
-        box-shadow: 0 10px 35px rgba(0, 204, 255, 0.3), 0 0 30px rgba(0, 204, 255, 0.1);
-        }
-
-        .skill-card i {
-        font-size: 45px;
-        margin-bottom: 15px;
-        text-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
-        }
-
-        .skill-card h3 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.4em;
+        .skills-section h2 {
+        font-size: 2.5em;
         color: var(--secondary-color);
         margin-bottom: 10px;
         }
 
-        .skill-card p {
+        .skills-section h2 span {
+        color: var(--primary-color);
+        }
+
+        .skills-section p {
         color: var(--light-text);
-        font-size: 0.9em;
-        line-height: 1.4;
+        max-width: 750px;
+        margin: 0 auto 50px;
+        font-size: 1em;
+        }
+
+        /* Skill Bar Container */
+        .skills-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+        }
+
+        /* Individual Skill */
+        .skill {
+        margin-bottom: 25px;
+        }
+
+        .skill-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--light-text);
+        font-weight: 600;
+        margin-bottom: 8px;
+        }
+
+        .skill-info i {
+        margin-right: 10px;
+        font-size: 1.4em;
+        width: 30px;
+        text-align: center;
+        }
+
+        .progress {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        height: 10px;
+        overflow: hidden;
+        }
+
+        .progress-bar {
+        height: 100%;
+        border-radius: 20px;
+        transition: width 1s ease-in-out;
+        box-shadow: 0 0 15px rgba(0, 204, 255, 0.5);
+        }
+
+        /* Animation */
+        .skill:hover .progress-bar {
+        filter: brightness(1.2);
+        box-shadow: 0 0 20px rgba(0, 204, 255, 0.7);
         }
 
         /* Responsive */
         @media (max-width: 600px) {
-        .skills-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .skills-container {
+            width: 100%;
         }
         }
 
@@ -624,82 +645,132 @@
 
     <section id="about" class="about-section">
         <h2>About <span>Me</span></h2>
-        <p>Hello, my name is Muhammad Arifin, and I am a passionate web developer and designer from Indonesia. I focus on creating clean, efficient, and visually appealing user experiences, leveraging both my technical coding skills and creative design expertise.</p>
+        <p>Hello, my name is Muhammad Arifin, and I am a passionate web developer and designer from Indonesia. 
+           I focus on creating clean, efficient, and visually appealing user experiences, leveraging both my 
+           technical coding skills and creative design expertise.</p>
         
         <div class="certificates">
             <h3><i class="fas fa-graduation-cap"></i> Certificates</h3>
-            <ul>
-                <li>
-                    <a href="sertifikat_dasar_ai.pdf" target="_blank">
-                        <i class="fas fa-award"></i>
-                        Dicoding: Belajar Dasar AI
-                    </a>
-                </li>
-                <li>
-                    <a href="sertifikat_dasar_cloud.pdf" target="_blank">
-                        <i class="fas fa-award"></i>
-                        Dicoding: Belajar Dasar Cloud dan Gen AI AWS
-                    </a>
-                </li>
-            </ul>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                <a href="sertifikat_dasar_ai.pdf" target="_blank">
+                    <i class="fas fa-award"></i>
+                    <span>Dicoding: Belajar Dasar AI</span>
+                </a>
+                </div>
+
+                <div class="certificate-card">
+                <a href="sertifikat_dasar_cloud.pdf" target="_blank">
+                    <i class="fas fa-award"></i>
+                    <span>Dicoding: Belajar Dasar Cloud dan Gen AI AWS</span>
+                </a>
+                </div>
+
+                <div class="certificate-card">
+                <a href="sertifikat_toeic.pdf" target="_blank">
+                    <i class="fas fa-award"></i>
+                    <span>TOEIC: English Proficiency Test</span>
+                </a>
+                </div>
+            </div>
         </div>
 
     </section>
 
     <section id="skills" class="skills-section">
-        <h2>
-            <i class="fas fa-code"></i> My <span>Skills</span>
-        </h2>
+        <h2><i class="fas fa-code"></i> My <span>Skills</span></h2>
+        <p>
+            These are the main tools and technologies I use in development and design —
+            blending creativity and logic to build professional and engaging digital experiences.
+        </p>
 
-        <p>These are the main tools and technologies I use in development and design — combining creativity and functionality to build engaging digital experiences.</p>
-
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fab fa-html5" style="color: #e44d26;"></i>
-                <h3>HTML</h3>
-                <p>Building the structure of web pages with clean and semantic code.</p>
+        <div class="skills-container">
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-html5" style="color:#e44d26;"></i>
+                <span>HTML</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:95%; background-color:#e44d26;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fab fa-css3-alt" style="color: #2965f1;"></i>
-                <h3>CSS</h3>
-                <p>Designing responsive, modern, and elegant interfaces with precision.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-css3-alt" style="color:#2965f1;"></i>
+                <span>CSS</span>
+               
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:90%; background-color:#2965f1;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fab fa-php" style="color: #777bb4;"></i>
-                <h3>PHP</h3>
-                <p>Creating dynamic and data-driven web applications with server-side logic.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-php" style="color:#777bb4;"></i>
+                <span>PHP</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:88%; background-color:#777bb4;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fab fa-java" style="color: #f89820;"></i>
-                <h3>Java</h3>
-                <p>Developing robust applications and understanding OOP concepts deeply.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-java" style="color:#f89820;"></i>
+                <span>Java</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:75%; background-color:#f89820;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fab fa-python" style="color: #3776ab;"></i>
-                <h3>Python</h3>
-                <p>Exploring automation, data processing, and AI fundamentals.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-python" style="color:#3776ab;"></i>
+                <span>Python</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:80%; background-color:#3776ab;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fab fa-figma" style="color: #f24e1e;"></i>
-                <h3>Figma</h3>
-                <p>Crafting sleek and interactive UI/UX prototypes collaboratively.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fab fa-figma" style="color:#f24e1e;"></i>
+                <span>Figma</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:90%; background-color:#f24e1e;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fas fa-adobe" style="color: #ff0000;"></i>
-                <h3>Adobe XD</h3>
-                <p>Designing wireframes and modern digital layouts with clarity.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fas fa-adobe" style="color:#ff0000;"></i>
+                <span>Adobe XD</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:85%; background-color:#ff0000;"></div>
+            </div>
             </div>
 
-            <div class="skill-card">
-                <i class="fas fa-palette" style="color: #ffb400;"></i>
-                <h3>Corel Draw</h3>
-                <p>Creating detailed vector illustrations and branding elements.</p>
+            <div class="skill">
+            <div class="skill-info">
+                <i class="fas fa-palette" style="color:#ffb400;"></i>
+                <span>Corel Draw</span>
+                
+            </div>
+            <div class="progress">
+                <div class="progress-bar" style="width:82%; background-color:#ffb400;"></div>
+            </div>
             </div>
         </div>
     </section>
@@ -707,7 +778,7 @@
     <section id="projects" class="projects-section">
         <h2>My <span>Projects</span></h2>
         <p>
-            Berikut beberapa karya dan aplikasi yang pernah saya buat, mulai dari desain logo hingga sistem aplikasi web. Geser ke samping untuk melihat lebih banyak!
+            Here are some of the works and applications I've created, from logo designs to web application systems. Swipe to see more!
         </p>
         <div class="slider" id="project-slider">
             <div class="slide">
