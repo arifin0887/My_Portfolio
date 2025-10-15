@@ -142,12 +142,15 @@
             padding-top: 100px;
         }
         .home-section img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+            width: 170px;                
+            height: 200px;               
+            border-radius: 50% / 60%;    
             border: 5px solid var(--primary-color);
-            box-shadow: 0 0 30px rgba(0, 204, 255, 0.6), 0 0 50px rgba(0, 204, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.6),
+                        0 0 50px rgba(0, 204, 255, 0.1);
+            object-fit: cover;           
         }
+
         .home-section img:hover { 
             transform: scale(1.05) rotate(3deg);
         }
@@ -297,10 +300,14 @@
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
             min-width: 320px;
             perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .slide:hover {
-            transform: translateY(-8px) rotateY(3deg);
-            box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3), 0 0 50px rgba(0, 204, 255, 0.1);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            /* transform: translateY(-8px) rotateY(3deg);
+            box-shadow: 0 20px 40px rgba(0, 204, 255, 0.3), 0 0 50px rgba(0, 204, 255, 0.1); */
             border-color: var(--primary-color);
         }
         .slide img {
@@ -789,29 +796,32 @@
                     <button>Corel Draw</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/rental">
                 <img src="logo.jpg" alt="Rental Mobil">
                 <h3>Rental Mobil</h3>
                 <p>Sistem kelola data rental mobil</p>
                 <div class="tech-stack">
                     <button>HTML</button>
                     <button>PHP</button>
-                    <button>MySQL</button>
+                    <button>JavaScript</button>
                     <button>Bootstrap</button>
+                    <button>MySQL</button>
                 </div>
             </div>
-            <div class="slide">
+
+            <div class="slide" data-link="https://github.com/arifin0887/sistem-perpustakaan">
                 <img src="perpus.png" alt="PerpusKu">
                 <h3>Perpus<span>Ku</span></h3>
                 <p>Aplikasi peminjaman buku perpustakaan.</p>
                 <div class="tech-stack">
                     <button>HTML</button>
                     <button>PHP</button>
+                    <button>CSS</button>
                     <button>MySQL</button>
-                    <button>Bootstrap</button>
+                    <button>JavaScript</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/laravel-booking">
                 <img src="hotelku.png" alt="Booking Ruangan">
                 <h3>Hotal<span>Ku</span></h3>
                 <p>Aplikasi administrasi perhotelan.</p>
@@ -822,29 +832,31 @@
                     <button>Tailwind</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/sistem-kasir">
                 <img src="fin_go.png" alt="FinGo">
                 <h3>Fin<span>Go</span></h3>
                 <p>Aplikasi kasir</p>
                 <div class="tech-stack">
                     <button>HTML</button>
                     <button>PHP</button>
+                    <button>CSS</button>
                     <button>MySQL</button>
                     <button>JavaScript</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/presensi-ekstrakurikuler">
                 <img src="Logo SMK.png" alt="EkstraKu">
                 <h3>Ekstra<span>Ku</span></h3>
                 <p>Aplikasi Presensi Ekstrakurikuler SMKN 2 Magelang.</p>
                 <div class="tech-stack">
+                    <button>HTML</button>
                     <button>PHP</button>
                     <button>MySQL</button>
                     <button>Bootstrap</button>
-                    <button>Chart.js</button>
+                    <button>JavaScript</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/aplikasi-nilai">
                 <img src="Logo SMK.png" alt="AkademiKu">
                 <h3>Akademi<span>Ku</span></h3>
                 <p>Aplikasi Input Nilai SMKN 2 Magelang</p>
@@ -855,43 +867,45 @@
                     <button>Bootstrap</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/sistem-berita">
                 <img src="berita.png" alt="AkademiKu">
                 <h3><span>Fin</span>News</h3>
                 <p>Aplikasi mengelola update brita terbaru</p>
                 <div class="tech-stack">
                     <button>HTML</button>
                     <button>PHP</button>
+                    <button>CSS</button>
                     <button>MySQL</button>
-                    <button>Bootstrap</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/web-sekolah">
                 <img src="Logo SMK.png" alt="AkademiKu">
                 <h3>Pay School<span>Ku</span></h3>
                 <p>Aplikasi input nilai sekaligus pembayaran SMKN 2 Magelang</p>
                 <div class="tech-stack">
                     <button>HTML</button>
                     <button>PHP</button>
-                    <button>MySQL</button>
+                    <button>JavaScript</button>
                     <button>Bootstrap</button>
+                    <button>MySQL</button>
                 </div>
             </div>
-            <div class="slide">
+            <div class="slide" data-link="https://github.com/arifin0887/web-paskibra">
                 <img src="paston.png" alt="AkademiKu">
                 <h3>Paskanida <span>Tonti</span></h3>
                 <p>Website organisasi paskibra SMKN 2 Magelang</p>
                 <div class="tech-stack">
                     <button>HTML</button>
+                    <button>PHP</button>
+                    <button>CSS</button>
                     <button>MySQL</button>
-                    <button>Bootstrap</button>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <form action="#" method="POST" class="contact-form">
+        <form action="send_email.php" method="POST" class="contact-form">
             <legend><i class="fas fa-headset"></i> Get In Touch</legend>
             <div class="form-row">
                 <div class="form-group">
@@ -964,6 +978,14 @@
                         menuToggle.querySelector('i').classList.add('fa-bars');
                     }
                 });
+            });
+        });
+
+        // Membuka link proyek di tab baru saat slide diklik
+        document.querySelectorAll('.slide').forEach(slide => {
+            slide.addEventListener('click', () => {
+            const link = slide.getAttribute('data-link');
+            if (link) window.open(link, '_blank');
             });
         });
     </script>
