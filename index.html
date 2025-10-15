@@ -905,7 +905,7 @@
     </section>
 
     <section id="contact">
-        <form action="send_email.php" method="POST" class="contact-form">
+        <form id="contactForm" class="contact-form">
             <legend><i class="fas fa-headset"></i> Get In Touch</legend>
             <div class="form-row">
                 <div class="form-group">
@@ -925,7 +925,10 @@
                 <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
                 <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
             </div>
-            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            <button type="submit" id="sendBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+
+            <!-- Pesan status -->
+            <p id="formStatus" style="margin-top:10px; font-weight:bold;"></p>
         </form>
 
         <div class="contact-media">
@@ -935,7 +938,7 @@
             <a href="https://instagram.com/findev_std" target="_blank" title="Instagram">
                 <i class="fab fa-instagram"></i> <span>Instagram</span>
             </a>
-            <a href="https://github.com/arifin0887" target="_blank" title="LinkedIn">
+            <a href="https://github.com/arifin0887" target="_blank" title="GitHub">
                 <i class="fab fa-github"></i> <span>GitHub</span>
             </a>
             <a href="mailto:ngaripin@gmail.com" target="_blank" title="Email">
@@ -987,6 +990,41 @@
             const link = slide.getAttribute('data-link');
             if (link) window.open(link, '_blank');
             });
+        });
+
+        // Form submission handling    
+        document.getElementById("contactForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const status = document.getElementById("formStatus");
+            const sendBtn = document.getElementById("sendBtn");
+
+            status.textContent = "Sending...";
+            sendBtn.disabled = true;
+
+            try {
+                const response = await fetch("send_email.php", {
+                    method: "POST",
+                    body: formData
+                });
+                const result = await response.text();
+
+                if (result.includes("success")) {
+                    status.style.color = "limegreen";
+                    status.textContent = "Message sent successfully!";
+                    form.reset();
+                } else {
+                    status.style.color = "red";
+                    status.textContent = "Failed to send message. Try again later.";
+                }
+            } catch (error) {
+                status.style.color = "red";
+                status.textContent = "An error occurred. Please try again.";
+            } finally {
+                sendBtn.disabled = false;
+            }
         });
     </script>
 
