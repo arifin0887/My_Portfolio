@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Username   = 'ngaripin6@gmail.com';
         $mail->Password   = 'kwuhclqyjupsrdjh'; // tanpa spasi
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port       = 587;
+        $mail->Port       = 465;
         $mail->SMTPDebug  = 2; // Tambahkan untuk debug (sementara)
 
 
