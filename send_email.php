@@ -17,15 +17,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'ngaripin6@gmail.com';
-        $mail->Password   = 'kwuhclqyjupsrdjh'; // tanpa spasi
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Password   = 'kwuhclqyjupsrdjh'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
-        $mail->SMTPDebug  = 2; // Tambahkan untuk debug (sementara)
+        $mail->SMTPDebug  = 2; 
 
 
         // Pengirim dan penerima
         $mail->setFrom('ngaripin6@gmail.com', 'Portfolio Website');
-        $mail->addAddress('ngaripin@gmail.com'); // Email penerima (kamu sendiri)
+        $mail->addAddress('ngaripin@gmail.com'); 
         $mail->addReplyTo($email, $name);
 
         // Konten email
