@@ -951,7 +951,7 @@
         <p>&copy; 2024 Muhammad Arifin. All rights reserved.</p>
     </footer>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuToggle = document.getElementById('menu-toggle');
             const navMenu = document.getElementById('nav-menu');
@@ -1026,7 +1026,104 @@
                 sendBtn.disabled = false;
             }
         });
-    </script>
+    </script> -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const sendBtn = document.getElementById('sendBtn');
+        
+        // Ganti dengan nomor WhatsApp Anda (tanpa + dan tanpa spasi)
+        const whatsappNumber = '6285165852787'; 
 
+        // Ambang batas lebar layar untuk dianggap mobile (misal: 768px)
+        const MOBILE_THRESHOLD = 768; 
+
+        // Fungsi untuk mengambil semua nilai input dari formulir
+        function getFormData() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            return { name, email, subject, message };
+        }
+
+        // --- Fungsi Pengiriman Utama ---
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const data = getFormData();
+            
+            // 1. Cek apakah ini perangkat mobile
+            if (window.innerWidth <= MOBILE_THRESHOLD) {
+                // --- Perilaku WhatsApp (Mobile) ---
+                
+                // Format pesan WhatsApp
+                let waMessage = `Halo Arifin, saya ${data.name} ingin menghubungi Anda.\n\n`;
+                waMessage += `Email: ${data.email}\n`;
+                waMessage += `Subjek: ${data.subject}\n\n`;
+                waMessage += `Pesan:\n${data.message}`;
+                
+                // Encode pesan untuk URL
+                const encodedMessage = encodeURIComponent(waMessage);
+                
+                // Buat tautan WhatsApp
+                const waLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // Tampilkan pesan status dan buka tautan
+                formStatus.textContent = "Redirecting to WhatsApp...";
+                formStatus.style.color = '#25d366'; // Warna WhatsApp
+                sendBtn.disabled = true;
+
+                // Buka link setelah jeda singkat (agar status terlihat)
+                setTimeout(() => {
+                    window.open(waLink, '_blank');
+                    // Reset status setelah tautan dibuka
+                    formStatus.textContent = "Message prefilled. Check your WhatsApp app!";
+                    sendBtn.disabled = false;
+                }, 500); 
+
+            } else {
+                // --- Perilaku Email (Desktop/Laptop) ---
+                // Panggil fungsi pengiriman Email (AJAX) yang sudah kita buat sebelumnya
+                
+                // Asumsi: Anda sudah mengimplementasikan AJAX/Fetch API yang saya berikan sebelumnya di sini
+                // Jika belum, Anda bisa pindahkan logika Fetch/AJAX (ke PHP Mailer) ke dalam blok ini.
+                
+                // Contoh Logic Pengiriman Email (AJAX/Fetch):
+                sendBtn.disabled = true;
+                formStatus.textContent = "Sending email... please wait.";
+                formStatus.style.color = '#ffcc00';
+
+                const formData = new FormData(contactForm);
+                const phpFile = 'send_email.php'; // Ganti dengan nama file PHP Anda
+                
+                fetch(phpFile, { method: 'POST', body: formData })
+                .then(response => response.text())
+                .then(data => {
+                    data = data.trim();
+                    if (data === 'success') {
+                        formStatus.textContent = "Email sent successfully! Thank you.";
+                        formStatus.style.color = 'var(--primary-color)'; 
+                        contactForm.reset();
+                    } else {
+                        formStatus.textContent = "Mailer Error: " + (data.substring(0, 50) + '...');
+                        formStatus.style.color = '#ff4444';
+                    }
+                })
+                .catch(error => {
+                    formStatus.textContent = "Network Error. Could not connect to server.";
+                    formStatus.style.color = '#ff4444';
+                })
+                .finally(() => {
+                    sendBtn.disabled = false;
+                });
+            }
+        });
+
+        // Pastikan fungsi toggle menu mobile tetap ada di sini
+        // ... (kode toggle menu yang sudah Anda miliki)
+    });
+</script>
 </body>
 </html>
