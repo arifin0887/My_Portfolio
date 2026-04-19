@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Muhammad Arifin</title>
-    <link rel="icon" href="findev01.png">
+    <link rel="icon" href="./assets/img/findev01.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -14,34 +14,34 @@
         /* ==================================== */
         :root {
             /* Dark Mode (Default) */
-            --primary-color: #00ccff;
-            --secondary-color: #ffffff;
-            --dark-bg: #070707;
-            --card-bg: #111111;
-            --text-color: #f0f0f0;
-            --light-text: #cccccc;
-            --accent-color: #00ffaa;
-            --border-color: #333333;
-            --shadow-color: rgba(0, 204, 255, 0.1);
-            --header-bg: rgba(0, 0, 0, 0.95);
-            --gradient-primary: linear-gradient(135deg, #00ccff, #00ffaa);
-            --gradient-dark: linear-gradient(135deg, #0a0a0a, #000000);
+            --primary-color: #22d3ee;
+            --secondary-color: #f8fafc;
+            --dark-bg: #06080f;
+            --card-bg: rgba(15, 23, 42, 0.92);
+            --text-color: #e2e8f0;
+            --light-text: #94a3b8;
+            --accent-color: #7dd3fc;
+            --border-color: rgba(148, 163, 184, 0.18);
+            --shadow-color: rgba(34, 211, 238, 0.16);
+            --header-bg: rgba(8, 12, 22, 0.92);
+            --gradient-primary: linear-gradient(135deg, #22d3ee, #2563eb);
+            --gradient-dark: linear-gradient(180deg, #06080f, #111827);
         }
 
         [data-theme="light"] {
             /* Light Mode */
-            --primary-color: #0077ff;
-            --secondary-color: #333333;
-            --dark-bg: #f8f9fa;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --light-text: #666666;
-            --accent-color: #0099ff;
-            --border-color: #dddddd;
-            --shadow-color: rgba(0, 119, 255, 0.1);
-            --header-bg: rgba(255, 255, 255, 0.95);
-            --gradient-primary: linear-gradient(135deg, #0077ff, #00aaff);
-            --gradient-dark: linear-gradient(135deg, #f0f0f0, #ffffff);
+            --primary-color: #2563eb;
+            --secondary-color: #111827;
+            --dark-bg: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #111827;
+            --light-text: #475569;
+            --accent-color: #38bdf8;
+            --border-color: rgba(148, 163, 184, 0.25);
+            --shadow-color: rgba(37, 99, 235, 0.14);
+            --header-bg: rgba(255, 255, 255, 0.96);
+            --gradient-primary: linear-gradient(135deg, #2563eb, #38bdf8);
+            --gradient-dark: linear-gradient(180deg, #f8fafc, #ffffff);
         }
 
         * { 
@@ -204,6 +204,21 @@
             cursor: pointer; 
             z-index: 1001; 
             transition: transform 0.3s; 
+        }
+
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 998;
+        }
+
+        .nav-overlay.active {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* ==================================== */
@@ -454,57 +469,73 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .skills-container {
-            max-width: 800px;
+        .skills-scroller {
+            max-width: 100%;
+            overflow: hidden;
             margin: 0 auto;
-            text-align: left;
+            padding: 40px 0 10px;
+        }
+
+        .skills-track {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            min-width: max-content;
+            animation: scroll-left 35s linear infinite;
+            will-change: transform;
         }
 
         .skill {
-            margin-bottom: 30px;
+            flex: 0 0 210px;
+            min-width: 210px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.04);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.08);
         }
 
         .skill-info {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            color: var(--light-text);
-            font-weight: 600;
-            margin-bottom: 10px;
+            gap: 10px;
+            color: var(--secondary-color);
+            font-weight: 700;
         }
 
         .skill-info i {
-            margin-right: 15px;
-            font-size: 1.5em;
-            width: 40px;
-            text-align: center;
+            font-size: 2.4em;
+            color: var(--accent-color);
+            animation: icon-spin 12s linear infinite;
+        }
+
+        .skill-info span:last-child {
+            display: none;
         }
 
         .progress {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            height: 12px;
-            overflow: hidden;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
-        .progress-bar {
-            height: 100%;
-            border-radius: 20px;
-            transition: width 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            position: relative;
-            overflow: hidden;
+        @keyframes icon-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: shimmer 2s infinite;
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @keyframes shimmer {
@@ -689,6 +720,14 @@
             box-shadow: 0 10px 25px var(--shadow-color);
         }
 
+        .form-status {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.5;
+            min-height: 1.5em;
+        }
+
         .contact-media {
             display: flex;
             justify-content: center;
@@ -844,6 +883,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
+        <div class="nav-overlay" id="nav-overlay"></div>
     </header>
 
     <section id="home" class="home-section">
@@ -877,35 +917,56 @@
                 <h3><i class="fas fa-graduation-cap"></i> Certificates</h3>
                 <div class="certificates-container">
                     <div class="certificate-card">
-                        <a href="sertifikat_dasar_ai.pdf" target="_blank">
+                        <a href="./assets/pdf/sertifikat_dasar_ai.pdf" target="_blank">
                             <i class="fas fa-award"></i>
                             <span>Dicoding: Belajar Dasar AI</span>
                         </a>
                     </div>
 
                     <div class="certificate-card">
-                        <a href="sertifikat_dasar_cloud.pdf" target="_blank">
+                        <a href="./assets/pdf/sertifikat_dasar_cloud.pdf" target="_blank">
                             <i class="fas fa-award"></i>
                             <span>Dicoding: Belajar Dasar Cloud dan Gen AI AWS</span>
                         </a>
                     </div>
 
                     <div class="certificate-card">
-                        <a href="sertifikat_toeic.pdf" target="_blank">
+                        <a href="./assets/pdf/sertifikat-toeic.pdf" target="_blank">
                             <i class="fas fa-award"></i>
                             <span>TOEIC: English Proficiency Test</span>
                         </a>
                     </div>
 
                     <div class="certificate-card">
-                        <a href="sertifikat_myskill.pdf" target="_blank">
+                        <a href="./assets/pdf/sertifikat_myskill.pdf" target="_blank">
                             <i class="fas fa-award"></i>
                             <span>Web Development: Frontend</span>
                         </a>
                     </div>
 
                     <div class="certificate-card">
-                        <a href="Sertifikat_Menyala.pdf" target="_blank">
+                        <a href="./assets/pdf/Muhammad Arifin - E-Certif SC Software Engineering MySkill.pdf" target="_blank">
+                            <i class="fas fa-award"></i>
+                            <span>Web Development: BackEnd</span>
+                        </a>
+                    </div>
+
+                    <div class="certificate-card">
+                        <a href="./assets/pdf/sertifikat_dasar_js.pdf" target="_blank">
+                            <i class="fas fa-award"></i>
+                            <span>Dicoding: Belajar Dasar Pemrograman JavaScript</span>
+                        </a>
+                    </div>
+
+                    <div class="certificate-card">
+                        <a href="./assets/pdf/sertifikat_javascript.pdf" target="_blank">
+                            <i class="fas fa-award"></i>
+                            <span>Dicoding: Belajar Backend Pemula Dengan JavaScript</span>
+                        </a>
+                    </div>
+
+                    <div class="certificate-card">
+                        <a href="./assets/pdf/Sertifikat_Menyala.pdf" target="_blank">
                             <i class="fas fa-award"></i>
                             <span>Literasi Keuangan</span>
                         </a>
@@ -923,28 +984,29 @@
                 blending creativity and logic to build professional and engaging digital experiences.
             </p>
 
-            <div class="skills-container">
-                <div class="skill">
-                    <div class="skill-info">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML</span>
-                        <span>95%</span>
+            <div class="skills-scroller">
+                <div class="skills-track">
+                    <div class="skill">
+                        <div class="skill-info">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:95%; background:#e44d26;"></div>
+                        </div>
                     </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:95%; background:#e44d26;"></div>
-                    </div>
-                </div>
 
-                <div class="skill">
-                    <div class="skill-info">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS</span>
-                        <span>90%</span>
+                    <div class="skill">
+                        <div class="skill-info">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width:90%; background:#2965f1;"></div>
+                        </div>
                     </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:90%; background:#2965f1;"></div>
-                    </div>
-                </div>
 
                 <div class="skill">
                     <div class="skill-info">
@@ -990,28 +1052,9 @@
                     </div>
                 </div>
 
-                <div class="skill">
-                    <div class="skill-info">
-                        <i class="fab fa-adobe"></i>
-                        <span>Adobe XD</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:85%; background:#ff0000;"></div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-info">
-                        <i class="fas fa-palette"></i>
-                        <span>Corel Draw</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:82%; background:#ffb400;"></div>
-                    </div>
-                </div>
             </div>
+        </div>
+
         </div>
     </section>
 
@@ -1023,7 +1066,7 @@
             </p>
             <div class="slider" id="project-slider">
                 <div class="slide">
-                    <img src="findev0.png" alt="Desain Logo FinDev Studio">
+                    <img src="./assets/img/findev0.png" alt="Desain Logo FinDev Studio">
                     <h3>Desain Logo</h3>
                     <p>Logo FinDev Studio</p>
                     <div class="tech-stack">
@@ -1032,7 +1075,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/web-paskibra">
-                    <img src="paston.png" alt="AkademiKu">
+                    <img src="./assets/img/paston.png" alt="AkademiKu">
                     <h3>Paskanida <span>Tonti</span></h3>
                     <p>A website designed to provide information about Paskibra activities, member profiles, schedules, and announcements. Built using HTML, CSS, MySQL and PHP to present a clean, informative, and responsive web experience.</p>
                     <div class="tech-stack">
@@ -1044,7 +1087,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/rental">
-                    <img src="logo.jpg" alt="Rental Mobil">
+                    <img src="./assets/img/logo.jpg" alt="Rental Mobil">
                     <h3>Rental Mobil</h3>
                     <p>A web-based car rental system for managing bookings, rental transactions, and payment status. Built using PHP, MySQL, Bootstrap, and JavaScript to support efficient and organized rental management.</p>
                     <div class="tech-stack">
@@ -1057,7 +1100,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-perpustakaan">
-                    <img src="perpus.png" alt="PerpusKu">
+                    <img src="./assets/img/perpus.png" alt="PerpusKu">
                     <h3>Perpus<span>Ku</span></h3>
                     <p>A web-based library system designed to manage book borrowing, returns, and member data efficiently. Built using PHP, MySQL, CSS, and JavaScript to support organized and accurate library management.</p>
                     <div class="tech-stack">
@@ -1070,7 +1113,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/laravel-booking">
-                    <img src="hotelku.png" alt="Booking Ruangan">
+                    <img src="./assets/img/hotelku.png" alt="Booking Ruangan">
                     <h3>Hotal<span>Ku</span></h3>
                     <p>A web-based hotel administration system designed to manage room data, guest information, bookings, and payment records efficiently. Built using PHP, MySQL, Bootstrap, and Laravel to support organized and reliable hotel operations.</p>
                     <div class="tech-stack">
@@ -1082,7 +1125,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-kasir">
-                    <img src="fin_go.png" alt="FinGo">
+                    <img src="./assets/img/fin_go.png" alt="FinGo">
                     <h3>Fin<span>Go</span></h3>
                     <p>A web-based point of sale system designed to manage product data, sales transactions, and payment calculations efficiently. Built using PHP, MySQL, CSS, and JavaScript to support fast and accurate store operations.</p>
                     <div class="tech-stack">
@@ -1095,7 +1138,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-berita">
-                    <img src="berita.png" alt="AkademiKu">
+                    <img src="./assets/img/berita.png" alt="AkademiKu">
                     <h3><span>Fin</span>News</h3>
                     <p>A web-based news management system designed to manage articles, categories, and publication status efficiently. Built using PHP, MySQL, and CSS to support structured content management and easy publishing.</p>
                     <div class="tech-stack">
@@ -1107,7 +1150,7 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/presensi-eksreakurikuler">
-                    <img src="Logo SMK.png" alt="FinGo">
+                    <img src="./assets/img/Logo SMK.png" alt="FinGo">
                     <h3>Ekstra<span>Ku</span></h3>
                     <p>A web-based attendance application designed to manage extracurricular activities, student attendance, and attendance records efficiently. Built using PHP, MySQL, Bootstrap, and JavaScript to support accurate and organized attendance management.</p>
                     <div class="tech-stack">
@@ -1119,7 +1162,7 @@
                     </div>
                 </div>
                 <div class="slide" data-link="https://github.com/arifin0887/aplikasi-nilai">
-                    <img src="Logo SMK.png" alt="AkademiKu">
+                    <img src="./assets/img/Logo SMK.png" alt="AkademiKu">
                     <h3>Akademi<span>Ku</span></h3>
                     <p>A web-based system designed to manage student grades, subjects, and assessment records efficiently. Built using PHP, MySQL, and Bootstrap to support accurate input, calculation, and reporting of student grades.</p>
                     <div class="tech-stack">
@@ -1131,7 +1174,7 @@
                 </div>
     
                 <div class="slide" data-link="https://github.com/arifin0887/web-sekolah">
-                    <img src="Logo SMK.png" alt="AkademiKu">
+                    <img src="./assets/img/Logo SMK.png" alt="AkademiKu">
                     <h3>Pay School<span>Ku</span></h3>
                     <p>A web-based system designed to manage student tuition payments, monthly billing, and payment records efficiently. Built using PHP, MySQL, Bootstrap, and JavaScript to support accurate and organized school payment management.</p>
                     <div class="tech-stack">
@@ -1149,21 +1192,21 @@
 
     <section id="contact" class="contact-section fade-in">
         <div class="container">
-            <form id="contactForm" class="contact-form">
+            <form id="contactForm" class="contact-form" novalidate>
                 <h2><i class="fas fa-headset"></i> Get In Touch</h2>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name"><i class="fas fa-user"></i> Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name..." required>
+                        <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name..." required>
                     </div>
                     <div class="form-group">
                         <label for="email"><i class="fas fa-at"></i> Email</label>
-                        <input type="email" id="email" name="email" placeholder="Your email..." required>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="Your email..." required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="subject"><i class="fas fa-tag"></i> Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Subject..." required>
+                    <input type="text" id="subject" name="subject" autocomplete="off" placeholder="Subject..." required>
                 </div>
                 <div class="form-group">
                     <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
@@ -1171,7 +1214,7 @@
                 </div>
                 <button type="submit" id="sendBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
 
-                <p id="formStatus" style="margin-top:20px; text-align:center;"></p>
+                <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
             </form>
 
             <div class="contact-media">
@@ -1201,31 +1244,27 @@
         // ====================================
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme or prefer-color-scheme
+        const themeStorageKey = 'portfolio-theme';
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        const currentTheme = localStorage.getItem('theme');
-        
-        if (currentTheme === 'light' || (!currentTheme && !prefersDarkScheme.matches)) {
-            document.documentElement.setAttribute('data-theme', 'light');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+        const savedTheme = localStorage.getItem(themeStorageKey);
+        const initialTheme = savedTheme ? savedTheme : (prefersDarkScheme.matches ? 'dark' : 'light');
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            if (theme === 'light') {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
         }
-        
+
+        applyTheme(initialTheme);
+
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
-            
-            if (currentTheme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'light');
-            }
+            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(nextTheme);
+            localStorage.setItem(themeStorageKey, nextTheme);
         });
 
         // ====================================
@@ -1233,20 +1272,30 @@
         // ====================================
         const menuToggle = document.getElementById('menu-toggle');
         const navMenu = document.getElementById('nav-menu');
+        const navOverlay = document.getElementById('nav-overlay');
         const navLinks = document.querySelectorAll('.nav-link');
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            menuToggle.querySelector('i').classList.toggle('fa-bars');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
+            navOverlay.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
+
+        navOverlay.addEventListener('click', closeMenu);
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.querySelector('i').classList.remove('fa-times');
-                menuToggle.querySelector('i').classList.add('fa-bars');
-                
+                closeMenu();
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
             });
@@ -1275,26 +1324,26 @@
         // ====================================
         // NAVIGATION ACTIVE STATE
         // ====================================
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
+        function updateNavActiveState() {
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-link');
-            
             let current = '';
+
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
+                if (window.scrollY >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
 
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
+                link.classList.toggle('active', link.getAttribute('href').substring(1) === current);
             });
-        });
+        }
+
+        window.addEventListener('scroll', updateNavActiveState);
+        window.addEventListener('load', updateNavActiveState);
 
         // ====================================
         // PROJECT SLIDER CLICK
@@ -1309,66 +1358,74 @@
         // ====================================
         // FORM SUBMISSION
         // ====================================
-        document.getElementById("contactForm").addEventListener("submit", async function(e) {
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+        const sendBtn = document.getElementById("sendBtn");
+
+        function setFormStatus(message, color = "var(--light-text)") {
+            formStatus.textContent = message;
+            formStatus.style.color = color;
+        }
+
+        contactForm.addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const form = e.target;
-            const formData = new FormData(form);
-            const status = document.getElementById("formStatus");
-            const sendBtn = document.getElementById("sendBtn");
-
-            status.textContent = "Sending...";
-            status.style.color = "var(--primary-color)";
-            sendBtn.disabled = true;
-
-            // Mobile detection for WhatsApp
-            const MOBILE_THRESHOLD = 768;
-            if (window.innerWidth <= MOBILE_THRESHOLD) {
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
-                
-                const whatsappNumber = '6285165852787';
-                const waMessage = `Halo Arifin, saya ${name} ingin menghubungi Anda.%0A%0AEmail: ${email}%0ASubjek: ${subject}%0A%0APesan:%0A${message}`;
-                const waLink = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
-                
-                window.open(waLink, '_blank');
-                status.textContent = "Opening WhatsApp...";
-                
-                setTimeout(() => {
-                    form.reset();
-                    status.textContent = "Message sent via WhatsApp!";
-                    status.style.color = '#25d366';
-                    sendBtn.disabled = false;
-                }, 1000);
-                
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
                 return;
             }
 
-            // Email submission for desktop
+            const formData = new FormData(contactForm);
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            setFormStatus("Preparing your message...", "var(--primary-color)");
+
+            const MOBILE_THRESHOLD = 768;
+            if (window.innerWidth <= MOBILE_THRESHOLD) {
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                const whatsappNumber = '6285165852787';
+                const waMessage = encodeURIComponent(`Halo Arifin, saya ${name} ingin menghubungi Anda.%0A%0AEmail: ${email}%0ASubjek: ${subject}%0A%0APesan:%0A${message}`);
+                const waLink = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
+
+                window.open(waLink, '_blank', 'noopener,noreferrer');
+                setFormStatus("Opening WhatsApp...", '#25d366');
+                contactForm.reset();
+                sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                return;
+            }
+
             try {
                 const response = await fetch("send_email.php", {
                     method: "POST",
                     body: formData
                 });
-                const result = await response.text();
+                const result = await response.json();
 
-                if (result.includes("success")) {
-                    status.style.color = "var(--accent-color)";
-                    status.textContent = "Message sent successfully!";
-                    form.reset();
+                if (response.ok && result.success) {
+                    setFormStatus(result.message, "var(--accent-color)");
+                    contactForm.reset();
                 } else {
-                    status.style.color = "#ff4444";
-                    status.textContent = "Failed to send message. Try again later.";
+                    setFormStatus(result.message || "Gagal mengirim. Coba kembali nanti.", "#ff6b6b");
                 }
             } catch (error) {
-                status.style.color = "#ff4444";
-                status.textContent = "An error occurred. Please try again.";
+                setFormStatus("Terjadi kesalahan jaringan. Periksa koneksi Anda.", "#ff6b6b");
             } finally {
                 sendBtn.disabled = false;
+                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
             }
         });
+
+        // ====================================
+        // SKILLS SCROLL DUPLICATION
+        // ====================================
+        const skillsTrack = document.querySelector('.skills-track');
+        if (skillsTrack) {
+            skillsTrack.innerHTML += skillsTrack.innerHTML;
+        }
 
         // ====================================
         // SKILL BARS ANIMATION ON SCROLL
