@@ -13,7 +13,7 @@
         /* VARIABLES & BASE STYLES */
         /* ==================================== */
         :root {
-            /* Dark Mode (Default) */
+            /* Dark Mode */
             --primary-color: #22d3ee;
             --secondary-color: #f8fafc;
             --dark-bg: #06080f;
@@ -589,6 +589,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
         }
 
         .slide::before {
@@ -608,11 +611,13 @@
 
         .slide img {
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            aspect-ratio: 16 / 9; 
+            object-fit: contain; 
+            background: rgba(255, 255, 255, 0.05); 
             border-radius: 10px;
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
+            display: block;
         }
 
         .slide h3 {
@@ -621,7 +626,29 @@
             color: var(--secondary-color);
         }
 
+        .slide .project-desc {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: var(--text-color); 
+            
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            
+            min-height: 4.8em; 
+            margin-bottom: 15px;
+        }
+
+        .slide .project-desc.expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
         .tech-stack {
+            margin-top: auto;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -645,6 +672,20 @@
             background: var(--primary-color);
             color: white;
             transform: scale(1.05);
+        }
+
+        .read-more-btn {
+            margin-top: 10px;
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .read-more-btn:hover {
+            text-decoration: underline;
         }
 
         /* ==================================== */
@@ -760,14 +801,96 @@
         /* ==================================== */
         /* FOOTER */
         /* ==================================== */
-        footer {
-            text-align: center;
-            padding: 30px;
+        .footer {
             background: var(--card-bg);
-            color: var(--light-text);
-            font-size: 0.9em;
-            margin-top: 50px;
             border-top: 1px solid var(--border-color);
+            padding-top: 50px;
+            color: var(--light-text);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* LEFT */
+        .footer-about h3 {
+            font-size: 1.5em;
+            color: var(--text-color);
+        }
+
+        .footer-about span {
+            color: var(--primary-color);
+        }
+
+        .footer-about p {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* LINKS */
+        .footer-links h4,
+        .footer-social h4 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--light-text);
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* SOCIAL */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-color);
+            border-radius: 50%;
+            color: var(--text-color);
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* BOTTOM */
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85em;
         }
 
         /* ==================================== */
@@ -876,23 +999,37 @@
 
         <nav id="nav-menu">
             <ul>
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link active" data-lang="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-lang="about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-lang="skill">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-lang="project">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-lang="contacts">Contact</a></li>
             </ul>
         </nav>
         <div class="nav-overlay" id="nav-overlay"></div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+            <button id="langToggle" style="
+                padding:8px 16px;
+                border-radius:20px;
+                border:1px solid var(--primary-color);
+                background:transparent;
+                color:var(--primary-color);
+                cursor:pointer;
+                font-weight:600;
+            ">
+                ID
+            </button>
+        </div>
     </header>
 
     <section id="home" class="home-section">
         <div class="profile-image floating">
-            <img src="IMG-20230529-WA0117.jpg" alt="Muhammad Arifin">
+            <img src="./assets/img/IMG-20230529-WA0117.jpg" alt="Muhammad Arifin">
         </div>
-        <h4>Hello, my name is</h4>
+        <h4 data-lang="hello">Hello, my name is</h4>
         <h1>Muhammad <span>Arifin</span></h1>
-        <h3>Designer & Web Developer</h3>
+        <h3 data-lang="role">Designer & Web Developer</h3>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
@@ -900,21 +1037,36 @@
 
     <section id="about" class="about-section fade-in">
         <div class="container">
-            <h2>About <span>Me</span></h2>
-            <p>Hello, my name is Muhammad Arifin, and I am a passionate web developer and designer from Indonesia. 
-               I focus on creating clean, efficient, and visually appealing user experiences, leveraging both my 
-               technical coding skills and creative design expertise.</p>
+            <h2 data-lang="aboutTittle">About <span>Me</span></h2>
+            <p data-lang="about1">
+                Hi! I'm <b>Muhammad Arifin</b>, a graduate of SMK Negeri 2 Magelang majoring in 
+                Software and Game Development (Software Engineering). I am passionate about creating 
+                digital solutions that are both functional and visually appealing. For me, coding is not 
+                just about writing lines of code, but an art of solving problems.</p>
+
+            <p data-lang="about2">
+                Throughout my journey in web development, I have built various projects that have 
+                strengthened my full-stack development skills. One of my key achievements is developing 
+                EventKu, an integrated event management platform that includes a ticketing system and 
+                a complex admin dashboard.
+            </p>
+
+            <p data-lang="about3">
+               I highly value UI/UX consistency and application performance. With expertise in technologies 
+                such as PHP (Laravel), Tailwind CSS, and automated testing using Cypress, I am committed 
+                to delivering products that not only run smoothly but also provide a memorable user experience.
+            </p>
             
-            <ul class="skills-tags">
+            <!-- <ul class="skills-tags">
                 <li><i class="fas fa-code"></i> Web Development</li>
                 <li><i class="fas fa-paint-brush"></i> UI/UX Design</li>
                 <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
                 <li><i class="fas fa-database"></i> Database Design</li>
                 <li><i class="fas fa-rocket"></i> Performance Optimization</li>
-            </ul>
+            </ul> -->
 
             <div class="certificates">
-                <h3><i class="fas fa-graduation-cap"></i> Certificates</h3>
+                <h3 data-lang="certificates"><i class="fas fa-graduation-cap"></i> Certificates</h3>
                 <div class="certificates-container">
                     <div class="certificate-card">
                         <a href="./assets/pdf/sertifikat_dasar_ai.pdf" target="_blank">
@@ -978,10 +1130,10 @@
 
     <section id="skills" class="skills-section fade-in">
         <div class="container">
-            <h2><i class="fas fa-code"></i> My <span>Skills</span></h2>
-            <p>
-                These are the main tools and technologies I use in development and design —
-                blending creativity and logic to build professional and engaging digital experiences.
+            <h2 data-lang="myskills"><i class="fas fa-code"></i> My <span>Skills</span></h2>
+            <p data-lang="skills">
+                The technology stack I leverage to deliver efficient, responsive, and aesthetic web solutions—transforming 
+                lines of code into exceptional user experiences.
             </p>
 
             <div class="skills-scroller">
@@ -990,10 +1142,6 @@
                         <div class="skill-info">
                             <i class="fab fa-html5"></i>
                             <span>HTML</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" style="width:95%; background:#e44d26;"></div>
                         </div>
                     </div>
 
@@ -1001,10 +1149,6 @@
                         <div class="skill-info">
                             <i class="fab fa-css3-alt"></i>
                             <span>CSS</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" style="width:90%; background:#2965f1;"></div>
                         </div>
                     </div>
 
@@ -1012,10 +1156,6 @@
                     <div class="skill-info">
                         <i class="fab fa-php"></i>
                         <span>PHP</span>
-                        <span>88%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:88%; background:#777bb4;"></div>
                     </div>
                 </div>
 
@@ -1023,10 +1163,6 @@
                     <div class="skill-info">
                         <i class="fab fa-java"></i>
                         <span>Java</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:75%; background:#f89820;"></div>
                     </div>
                 </div>
 
@@ -1034,10 +1170,6 @@
                     <div class="skill-info">
                         <i class="fab fa-python"></i>
                         <span>Python</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:80%; background:#3776ab;"></div>
                     </div>
                 </div>
 
@@ -1045,10 +1177,6 @@
                     <div class="skill-info">
                         <i class="fab fa-figma"></i>
                         <span>Figma</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar" style="width:90%; background:#f24e1e;"></div>
                     </div>
                 </div>
 
@@ -1060,10 +1188,12 @@
 
     <section id="projects" class="projects-section fade-in">
         <div class="container">
-            <h2>My <span>Projects</span></h2>
-            <p>
-                Here are some of the works and applications I've created, from logo designs to web application systems.
+            <h2 data-lang="myprojects"><i class="fas fa-briefcase"></i> My <span>Projects</span></h2>
+            <p data-lang="projects">
+                A curated collection of my work, ranging from brand identity design 
+                to complex web application systems—each built with precision and purpose.
             </p>
+
             <div class="slider" id="project-slider">
                 <div class="slide">
                     <img src="./assets/img/findev0.png" alt="Desain Logo FinDev Studio">
@@ -1077,7 +1207,14 @@
                 <div class="slide" data-link="https://github.com/arifin0887/web-paskibra">
                     <img src="./assets/img/paston.png" alt="AkademiKu">
                     <h3>Paskanida <span>Tonti</span></h3>
-                    <p>A website designed to provide information about Paskibra activities, member profiles, schedules, and announcements. Built using HTML, CSS, MySQL and PHP to present a clean, informative, and responsive web experience.</p>
+                    <p class="project-desc" data-lang="project1">
+                        A dedicated landing page for the Paskibra organization, serving as a 
+                        comprehensive information hub. It showcases the organization's history, 
+                        prestigious championship achievements, and provides up-to-date recruitment 
+                        schedules for prospective members.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
+
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1087,9 +1224,16 @@
                 </div>
 
                 <div class="slide" data-link="https://github.com/arifin0887/rental">
-                    <img src="./assets/img/logo.jpg" alt="Rental Mobil">
+                    <img src="./assets/img/rental.png" alt="Rental Mobil">
                     <h3>Rental Mobil</h3>
-                    <p>A web-based car rental system for managing bookings, rental transactions, and payment status. Built using PHP, MySQL, Bootstrap, and JavaScript to support efficient and organized rental management.</p>
+                    <p class="project-desc" data-lang="project2">
+                        A web-based car rental management platform that automates booking 
+                        workflows, tracks vehicle availability in real-time, and manages 
+                        payment transactions with an intuitive administrative dashboard.
+                    </p>
+
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
+
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1102,7 +1246,12 @@
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-perpustakaan">
                     <img src="./assets/img/perpus.png" alt="PerpusKu">
                     <h3>Perpus<span>Ku</span></h3>
-                    <p>A web-based library system designed to manage book borrowing, returns, and member data efficiently. Built using PHP, MySQL, CSS, and JavaScript to support organized and accurate library management.</p>
+                    <p class="project-desc" data-lang="project3">
+                        An efficient library management system designed to digitalize book catalogs, 
+                        monitor borrowing duration, and manage member databases to reduce manual errors 
+                        and improve administrative speed.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1114,8 +1263,13 @@
 
                 <div class="slide" data-link="https://github.com/arifin0887/laravel-booking">
                     <img src="./assets/img/hotelku.png" alt="Booking Ruangan">
-                    <h3>Hotal<span>Ku</span></h3>
-                    <p>A web-based hotel administration system designed to manage room data, guest information, bookings, and payment records efficiently. Built using PHP, MySQL, Bootstrap, and Laravel to support organized and reliable hotel operations.</p>
+                    <h3>Hotel<span>Ku</span></h3>
+                    <p class="project-desc" data-lang="project4">
+                        A robust hotel administration system built with Laravel. It features room 
+                        category management, guest registration, and an integrated booking system 
+                        to provide a seamless hospitality management experience.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>PHP</button>
                         <button>MySQL</button>
@@ -1127,7 +1281,12 @@
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-kasir">
                     <img src="./assets/img/fin_go.png" alt="FinGo">
                     <h3>Fin<span>Go</span></h3>
-                    <p>A web-based point of sale system designed to manage product data, sales transactions, and payment calculations efficiently. Built using PHP, MySQL, CSS, and JavaScript to support fast and accurate store operations.</p>
+                    <p class="project-desc" data-lang="project5">
+                        A high-performance Point of Sale (POS) system designed for retail operations. 
+                        It features real-time inventory tracking, sales reporting, and automated receipt 
+                        generation to ensure accurate business transactions.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1140,7 +1299,12 @@
                 <div class="slide" data-link="https://github.com/arifin0887/sistem-berita">
                     <img src="./assets/img/berita.png" alt="AkademiKu">
                     <h3><span>Fin</span>News</h3>
-                    <p>A web-based news management system designed to manage articles, categories, and publication status efficiently. Built using PHP, MySQL, and CSS to support structured content management and easy publishing.</p>
+                    <p class="project-desc" data-lang="project6">
+                        A Content Management System (CMS) tailored for digital news publishing. 
+                        It allows admins to organize articles by category, manage multimedia 
+                        content, and control publication status with a responsive interface.
+                    </p>                    
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1152,7 +1316,12 @@
                 <div class="slide" data-link="https://github.com/arifin0887/presensi-eksreakurikuler">
                     <img src="./assets/img/Logo SMK.png" alt="FinGo">
                     <h3>Ekstra<span>Ku</span></h3>
-                    <p>A web-based attendance application designed to manage extracurricular activities, student attendance, and attendance records efficiently. Built using PHP, MySQL, Bootstrap, and JavaScript to support accurate and organized attendance management.</p>
+                    <p class="project-desc" data-lang="project7">
+                        A dedicated attendance tracking application for school extracurricular activities. 
+                        It simplifies the monitoring of student participation and provides structured attendance 
+                        logs for teachers and administrators.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1164,7 +1333,11 @@
                 <div class="slide" data-link="https://github.com/arifin0887/aplikasi-nilai">
                     <img src="./assets/img/Logo SMK.png" alt="AkademiKu">
                     <h3>Akademi<span>Ku</span></h3>
-                    <p>A web-based system designed to manage student grades, subjects, and assessment records efficiently. Built using PHP, MySQL, and Bootstrap to support accurate input, calculation, and reporting of student grades.</p>
+                    <p class="project-desc" data-lang="project8">
+                        A comprehensive academic grading system that allows educators to manage subject lists, 
+                        input student scores, and calculate final grades automatically for better academic reporting.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
@@ -1176,13 +1349,33 @@
                 <div class="slide" data-link="https://github.com/arifin0887/web-sekolah">
                     <img src="./assets/img/Logo SMK.png" alt="AkademiKu">
                     <h3>Pay School<span>Ku</span></h3>
-                    <p>A web-based system designed to manage student tuition payments, monthly billing, and payment records efficiently. Built using PHP, MySQL, Bootstrap, and JavaScript to support accurate and organized school payment management.</p>
+                    <p class="project-desc" data-lang="project9">
+                        A financial management tool for schools to track student tuition (SPP) payments. 
+                        It provides automated billing status, payment history records, and reduces 
+                        administrative overhead in school finances.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
                     <div class="tech-stack">
                         <button>HTML</button>
                         <button>PHP</button>
                         <button>JavaScript</button>
                         <button>Bootstrap</button>
                         <button>MySQL</button>
+                    </div>
+                </div>
+
+                <div class="slide" data-link="https://github.com/arifin0887/Sistem-Informasi-Pemesanan-Tiket-Event-">
+                    <img src="./assets/img/EventKu.png" alt="AkademiKu">
+                    <h3>Event<span>Ku</span></h3>
+                    <p class="project-desc" data-lang="project10">
+                       A dynamic event management and ticketing platform. It provides a complete solution for organizers 
+                       to list events, manage ticket inventory, and process user bookings through a streamlined digital interface.
+                    </p>
+                    <button class="read-more-btn" data-lang="readmore">Read More</button>
+                    <div class="tech-stack">
+                        <button>HTML</button>
+                        <button>CSS</button>
+                        <button>JavaScript</button>
                     </div>
                 </div>
                 
@@ -1193,10 +1386,10 @@
     <section id="contact" class="contact-section fade-in">
         <div class="container">
             <form id="contactForm" class="contact-form" novalidate>
-                <h2><i class="fas fa-headset"></i> Get In Touch</h2>
+                <h2 data-lang="contact"><i class="fas fa-headset"></i> Get In Touch</h2>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name"><i class="fas fa-user"></i> Name</label>
+                        <label for="name" data-lang="name"><i class="fas fa-user"></i> Name</label>
                         <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name..." required>
                     </div>
                     <div class="form-group">
@@ -1209,10 +1402,10 @@
                     <input type="text" id="subject" name="subject" autocomplete="off" placeholder="Subject..." required>
                 </div>
                 <div class="form-group">
-                    <label for="message"><i class="fas fa-comment-dots"></i> Message</label>
+                    <label for="message" data-lang="message"><i class="fas fa-comment-dots"></i> Message</label>
                     <textarea id="message" name="message" rows="5" placeholder="Type your message..." required></textarea>
                 </div>
-                <button type="submit" id="sendBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <button type="submit" id="sendBtn" data-lang="send"><i class="fas fa-paper-plane"></i> Send Message</button>
 
                 <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
             </form>
@@ -1224,6 +1417,9 @@
                 <a href="https://instagram.com/findev_std" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i> <span>Instagram</span>
                 </a>
+                <a href="https://www.linkedin.com/in/muhammadarifinnn" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+                </a>
                 <a href="https://github.com/arifin0887" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i> <span>GitHub</span>
                 </a>
@@ -1234,8 +1430,54 @@
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Muhammad Arifin. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- LEFT -->
+            <div class="footer-about">
+                <h3>Muhammad <span>Arifin</span></h3>
+                <p data-lang="footerAbout">
+                    Building modern, functional, and aesthetic digital experiences.
+                    Focused on web development, UI/UX, and performance.
+                </p>
+            </div>
+
+            <!-- CENTER -->
+            <div class="footer-links">
+                <h4 data-lang="footerLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-lang="home">Home</a></li>
+                    <li><a href="#about" data-lang="about">About</a></li>
+                    <li><a href="#skills" data-lang="skill">Skills</a></li>
+                    <li><a href="#projects" data-lang="project">Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="footer-social">
+                <h4 data-lang="footerSocial">Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/arifin0887" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammadarifinnn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://instagram.com/findev_std" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:ngaripin@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            <p data-lang="footerBottom">&copy; 2026 Muhammad Arifin. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
@@ -1380,24 +1622,6 @@
             sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             setFormStatus("Preparing your message...", "var(--primary-color)");
 
-            const MOBILE_THRESHOLD = 768;
-            if (window.innerWidth <= MOBILE_THRESHOLD) {
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const subject = formData.get('subject');
-                const message = formData.get('message');
-                const whatsappNumber = '6285165852787';
-                const waMessage = encodeURIComponent(`Halo Arifin, saya ${name} ingin menghubungi Anda.%0A%0AEmail: ${email}%0ASubjek: ${subject}%0A%0APesan:%0A${message}`);
-                const waLink = `https://wa.me/${whatsappNumber}?text=${waMessage}`;
-
-                window.open(waLink, '_blank', 'noopener,noreferrer');
-                setFormStatus("Opening WhatsApp...", '#25d366');
-                contactForm.reset();
-                sendBtn.disabled = false;
-                sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                return;
-            }
-
             try {
                 const response = await fetch("send_email.php", {
                     method: "POST",
@@ -1460,6 +1684,172 @@
                 }, 500);
             });
         });
+
+        // ====================================
+        // READ MORE BUTTONS
+        // ====================================
+        document.querySelectorAll('.read-more-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+
+                const desc = button.previousElementSibling;
+
+                desc.classList.toggle('expanded');
+
+                if (desc.classList.contains('expanded')) {
+                    button.textContent = "Show Less";
+                } else {
+                    button.textContent = "Read More";
+                }
+            });
+        });
+
+        // ====================================
+        // LANGUAGE TOGGLE
+        // ====================================
+        const langToggle = document.getElementById("langToggle");
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        const translations = {
+            en: {
+                home:"Home",
+                about: "About",
+                skill: "Skills",
+                project: "Projects",
+                contacts: "Contact",
+
+                hello: "Hello, my name is",
+                role: "Designer & Web Developer",
+                aboutTittle: "About Me",
+
+                about1: "Hi! I'm Muhammad Arifin, a graduate of SMK Negeri 2 Magelang majoring in Software and Game Development (Software Engineering). I am passionate about creating digital solutions that are both functional and visually appealing. For me, coding is not just about writing lines of code, but an art of solving problems.",
+
+                about2: "Throughout my journey in web development, I have built various projects that have strengthened my full-stack development skills. One of my key achievements is developing EventKu, an integrated event management platform that includes a ticketing system and a complex admin dashboard.",
+
+                about3: "I highly value UI/UX consistency and application performance. With expertise in technologies such as PHP (Laravel), Tailwind CSS, and automated testing using Cypress, I am committed to delivering products that not only run smoothly but also provide a memorable user experience.",
+
+                certificates: "Certificates",
+
+                myskills: "My Skills",
+                skills: "The technology stack I leverage to deliver efficient, responsive, and aesthetic web solutions—transforming lines of code into exceptional user experiences.",
+
+                myprojects: "My Projects",
+                projects: "A curated collection of my work, ranging from brand identity design to complex web application systems—each built with precision and purpose.",
+
+                project1: "A dedicated landing page for the Paskibra organization, serving as a comprehensive information hub. It showcases the organization's history, prestigious championship achievements, and provides up-to-date recruitment schedules for prospective members.",
+
+                project2: "A web-based car rental management platform that automates booking workflows, tracks vehicle availability in real-time, and manages payment transactions with an intuitive administrative dashboard.",
+
+                project3: "An efficient library management system designed to digitalize book catalogs, monitor borrowing duration, and manage member databases to reduce manual errors and improve administrative speed.",
+
+                project4: "A robust hotel administration system built with Laravel. It features room category management, guest registration, and an integrated booking system to provide a seamless hospitality management experience.",
+
+                project5: "A high-performance Point of Sale (POS) system designed for retail operations. It features real-time inventory tracking, sales reporting, and automated receipt generation to ensure accurate business transactions.",
+
+                project6: "A Content Management System (CMS) tailored for digital news publishing. It allows admins to organize articles by category, manage multimedia content, and control publication status with a responsive interface.",
+
+                project7: "A dedicated attendance tracking application for school extracurricular activities. It simplifies the monitoring of student participation and provides structured attendance logs for teachers and administrators.",
+
+                project8: "A comprehensive academic grading system that allows educators to manage subject lists, input student scores, and calculate final grades automatically for better academic reporting.",
+
+                project9: "A financial management tool for schools to track student tuition (SPP) payments. It provides automated billing status, payment history records, and reduces administrative overhead in school finances.",
+
+                project10: "A dynamic event management and ticketing platform. It provides a complete solution for organizers to list events, manage ticket inventory, and process user bookings through a streamlined digital interface.",
+
+                readmore: "Read More",
+
+                contact: "Get In Touch",
+                name: "Name",
+                message: "Message",
+                send:"Send Message",
+
+                footerAbout: "Building modern, functional, and aesthetic digital experiences. Focused on web development, UI/UX, and performance.",
+                footerLinks: "Quick Links",
+                footerSocial: "Connect",
+                footerBottom: "© 2026 Muhammad Arifin. All rights reserved."
+            },
+
+            id: {
+                home:"Beranda",
+                about: "Tentang",
+                skill: "Keahlian",
+                project: "Proyek",
+                contacts: "Kontak",
+
+                hello: "Halo, nama saya",
+                role: "Desainer & Web Developer",
+                aboutTittle: "Tentang Saya",
+
+                about1: "Halo! Saya Muhammad Arifin, lulusan SMK Negeri 2 Magelang jurusan Pengembangan Perangkat Lunak dan Gim (RPL). Saya memiliki passion dalam menciptakan solusi digital yang fungsional dan menarik secara visual. Bagi saya, coding bukan hanya menulis baris kode, tetapi seni dalam memecahkan masalah.",
+
+                about2: "Selama perjalanan saya di dunia pengembangan web, saya telah membangun berbagai proyek yang mengasah kemampuan full-stack saya. Salah satu pencapaian utama saya adalah mengembangkan EventKu, sebuah platform manajemen event terintegrasi yang mencakup sistem ticketing hingga dashboard admin yang kompleks.",
+
+                about3: "Saya sangat memperhatikan konsistensi UI/UX dan performa aplikasi. Dengan penguasaan teknologi seperti PHP (Laravel), Tailwind CSS, serta pengujian otomatis menggunakan Cypress, saya berkomitmen menghadirkan produk yang tidak hanya berjalan dengan baik tetapi juga memberikan pengalaman pengguna yang berkesan.",
+
+                certificates: "Sertifikat",
+
+                myskills: "Keahlian Saya",
+                skills: "Teknologi yang saya gunakan untuk membangun solusi web yang efisien, responsif, dan menarik—mengubah baris kode menjadi pengalaman pengguna yang luar biasa.",
+
+                myprojects: "Proyek Saya",
+                projects: "Kumpulan karya yang telah saya buat, mulai dari desain hingga sistem aplikasi web kompleks—dibangun dengan presisi dan tujuan yang jelas.",
+
+                project1: "Landing page khusus untuk organisasi Paskibra yang berfungsi sebagai pusat informasi lengkap. Menampilkan sejarah organisasi, prestasi kejuaraan yang membanggakan, serta menyediakan jadwal seleksi anggota baru yang selalu diperbarui.",
+
+                project2: "Platform manajemen rental mobil berbasis web yang mengotomatiskan alur kerja pemesanan, melacak ketersediaan kendaraan secara real-time, dan mengelola transaksi pembayaran dengan dashboard admin yang intuitif.",
+
+                project3: "Sistem manajemen perpustakaan yang efisien, dirancang untuk mendigitalisasi katalog buku, memantau durasi peminjaman, dan mengelola database anggota untuk mengurangi kesalahan manual serta meningkatkan kecepatan administrasi.",
+
+                project4: "Sistem administrasi hotel yang tangguh yang dibangun dengan Laravel. Memiliki fitur manajemen kategori kamar, registrasi tamu, dan sistem pemesanan terintegrasi untuk memberikan pengalaman manajemen perhotelan yang lancar.",
+
+                project5: "Sistem Kasir (Point of Sale) berkinerja tinggi yang dirancang untuk operasional ritel. Dilengkapi fitur pelacakan stok real-time, laporan penjualan, dan pembuatan struk otomatis untuk memastikan transaksi bisnis yang akurat.",
+
+                project6: "Content Management System (CMS) yang disesuaikan untuk publikasi berita digital. Memungkinkan admin untuk mengelola artikel berdasarkan kategori, mengelola konten multimedia, dan mengontrol status publikasi dengan antarmuka yang responsif.",
+
+                project7: "Aplikasi pelacakan kehadiran khusus untuk kegiatan ekstrakurikuler sekolah. Memudahkan pemantauan partisipasi siswa dan menyediakan log kehadiran yang terstruktur untuk guru dan administrator.",
+
+                project8: "Sistem penilaian akademik komprehensif yang memungkinkan pendidik untuk mengelola daftar mata pelajaran, menginput nilai siswa, dan menghitung nilai akhir secara otomatis untuk pelaporan akademik yang lebih baik.",
+
+                project9: "Alat manajemen keuangan sekolah untuk melacak pembayaran SPP siswa. Menyediakan status tagihan otomatis, catatan riwayat pembayaran, dan mengurangi beban kerja administratif dalam keuangan sekolah.",
+
+                project10: "Platform manajemen acara dan penjualan tiket yang dinamis. Menyediakan solusi lengkap bagi penyelenggara untuk mendaftarkan acara, mengelola stok tiket, dan memproses pemesanan pengguna melalui antarmuka digital yang efisien.",
+
+                readmore: "Selengkapnya",
+
+                contact: "Hubungi Saya",
+                name: "Nama",
+                message: "Pesan",
+                send:"Kirim Pesan",
+
+                footerAbout: "Membangun pengalaman digital yang modern, fungsional, dan estetis. Fokus pada pengembangan web, UI/UX, dan performa.",
+                footerLinks: "Tautan Cepat",
+                footerSocial: "Terhubung",
+                footerBottom: "© 2026 Muhammad Arifin. Hak cipta dilindungi."
+            }
+        };
+
+        function applyLanguage(lang) {
+            document.querySelectorAll("[data-lang]").forEach(el => {
+                const key = el.getAttribute("data-lang");
+
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            langToggle.textContent = lang === "en" ? "ID" : "EN";
+            localStorage.setItem("lang", lang);
+        }
+
+        // INIT
+        applyLanguage(currentLang);
+
+        // TOGGLE BUTTON
+        langToggle.addEventListener("click", () => {
+            currentLang = currentLang === "en" ? "id" : "en";
+            applyLanguage(currentLang);
+        });
+
     </script>
 </body>
 </html>
